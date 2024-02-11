@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 
-using static Fully_Autonomous_Racing_Technology.XboxController;
-
 namespace Fully_Autonomous_Racing_Technology
 {
     public partial class MDIParent : Form
@@ -150,18 +148,22 @@ namespace Fully_Autonomous_Racing_Technology
             set { currentBrakeStatusValue = value; }
         }
 
-        private static int currentStearAngleValue;
-        public static int currentStearAngle
+        private static int currentSteerAngleValue;
+        public static int currentSteerAngle
         {
-            get { return currentStearAngleValue; }
+            get { return currentSteerAngleValue; }
             set
             {
-                if (value >= -45 & value <= 45)
+                if ( value > 45)
                 {
-                    currentStearAngleValue = value;
-                    return;
+                    value = 45;
                 }
-                throw new ArgumentException("currentStearAngle ouside of range (-45 - 45)");
+                if (value < -45)
+                {
+                    value = -45;
+                }
+
+                currentSteerAngleValue = value;
             }
         }
 
@@ -188,6 +190,7 @@ namespace Fully_Autonomous_Racing_Technology
 
             getSettings();
 
+            XboxController.initializeXboxController();
         }
 
         public void updateParentSettingsIndicators()
@@ -265,7 +268,25 @@ namespace Fully_Autonomous_Racing_Technology
 
         private void tmrLoop_Tick(object sender, EventArgs e)
         {
-            //XboxController.updaupdateXboxData();
+            XboxController.updateXboxData();
+            FrmHome frmHome = (FrmHome)getScreen("Home");
+
+            int newAngle = (int)Math.Round(((XboxController.leftThumb.X) / 100.0) * 45);
+            if (Math.Abs(newAngle - currentSteerAngle) > 5)
+            {
+                currentSteerAngle += (5 * (newAngle < currentSteerAngle  ?-1:1));
+            }
+            else
+            {
+                currentSteerAngle = newAngle;
+            }
+
+            currentAccelertion = (int)Math.Round((XboxController.rightTrigger / 255.0) * 100);
+
+            currentBrakeStatus = Math.Round(XboxController.leftTrigger/255) == 1;
+
+
+            frmHome.updateHomeIndicators();
         }
     }
 

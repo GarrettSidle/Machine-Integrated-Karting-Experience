@@ -75,11 +75,11 @@
             lytKartCenter = new TableLayoutPanel();
             pnlKartImage = new Panel();
             imgKart = new PictureBox();
-            lytStearingAngle = new TableLayoutPanel();
+            lytSteeringAngle = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label8 = new Label();
-            lblStearAngleValue = new Label();
-            lblStearingAngleTitle = new Label();
+            lblSteerAngleValue = new Label();
+            lblSteeringAngleTitle = new Label();
             lytKartRight = new TableLayoutPanel();
             lytSpeed = new TableLayoutPanel();
             lblSpeedTitle = new Label();
@@ -161,7 +161,7 @@
             lytKartCenter.SuspendLayout();
             pnlKartImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgKart).BeginInit();
-            lytStearingAngle.SuspendLayout();
+            lytSteeringAngle.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             lytKartRight.SuspendLayout();
             lytSpeed.SuspendLayout();
@@ -804,7 +804,7 @@
             lytKartCenter.ColumnCount = 1;
             lytKartCenter.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             lytKartCenter.Controls.Add(pnlKartImage, 0, 1);
-            lytKartCenter.Controls.Add(lytStearingAngle, 0, 0);
+            lytKartCenter.Controls.Add(lytSteeringAngle, 0, 0);
             lytKartCenter.Dock = DockStyle.Fill;
             lytKartCenter.Location = new Point(164, 0);
             lytKartCenter.Margin = new Padding(0);
@@ -836,22 +836,22 @@
             imgKart.TabIndex = 1;
             imgKart.TabStop = false;
             // 
-            // lytStearingAngle
+            // lytSteeringAngle
             // 
-            lytStearingAngle.ColumnCount = 1;
-            lytStearingAngle.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            lytStearingAngle.Controls.Add(tableLayoutPanel3, 0, 1);
-            lytStearingAngle.Controls.Add(lblStearingAngleTitle, 0, 0);
-            lytStearingAngle.Dock = DockStyle.Fill;
-            lytStearingAngle.Location = new Point(0, 0);
-            lytStearingAngle.Margin = new Padding(0);
-            lytStearingAngle.Name = "lytStearingAngle";
-            lytStearingAngle.RowCount = 2;
-            lytStearingAngle.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            lytStearingAngle.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            lytStearingAngle.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            lytStearingAngle.Size = new Size(398, 63);
-            lytStearingAngle.TabIndex = 11;
+            lytSteeringAngle.ColumnCount = 1;
+            lytSteeringAngle.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            lytSteeringAngle.Controls.Add(tableLayoutPanel3, 0, 1);
+            lytSteeringAngle.Controls.Add(lblSteeringAngleTitle, 0, 0);
+            lytSteeringAngle.Dock = DockStyle.Fill;
+            lytSteeringAngle.Location = new Point(0, 0);
+            lytSteeringAngle.Margin = new Padding(0);
+            lytSteeringAngle.Name = "lytSteeringAngle";
+            lytSteeringAngle.RowCount = 2;
+            lytSteeringAngle.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            lytSteeringAngle.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            lytSteeringAngle.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            lytSteeringAngle.Size = new Size(398, 63);
+            lytSteeringAngle.TabIndex = 11;
             // 
             // tableLayoutPanel3
             // 
@@ -859,7 +859,7 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 53.82653F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 46.17347F));
             tableLayoutPanel3.Controls.Add(label8, 0, 0);
-            tableLayoutPanel3.Controls.Add(lblStearAngleValue, 0, 0);
+            tableLayoutPanel3.Controls.Add(lblSteerAngleValue, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(3, 34);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -881,30 +881,30 @@
             label8.Text = "°";
             label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblStearAngleValue
+            // lblSteerAngleValue
             // 
-            lblStearAngleValue.AutoSize = true;
-            lblStearAngleValue.Dock = DockStyle.Fill;
-            lblStearAngleValue.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStearAngleValue.Location = new Point(0, 0);
-            lblStearAngleValue.Margin = new Padding(0);
-            lblStearAngleValue.Name = "lblStearAngleValue";
-            lblStearAngleValue.Size = new Size(211, 26);
-            lblStearAngleValue.TabIndex = 15;
-            lblStearAngleValue.Text = "##";
-            lblStearAngleValue.TextAlign = ContentAlignment.MiddleRight;
+            lblSteerAngleValue.AutoSize = true;
+            lblSteerAngleValue.Dock = DockStyle.Fill;
+            lblSteerAngleValue.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSteerAngleValue.Location = new Point(0, 0);
+            lblSteerAngleValue.Margin = new Padding(0);
+            lblSteerAngleValue.Name = "lblSteerAngleValue";
+            lblSteerAngleValue.Size = new Size(211, 26);
+            lblSteerAngleValue.TabIndex = 15;
+            lblSteerAngleValue.Text = "##";
+            lblSteerAngleValue.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // lblStearingAngleTitle
+            // lblSteeringAngleTitle
             // 
-            lblStearingAngleTitle.AutoSize = true;
-            lblStearingAngleTitle.Dock = DockStyle.Fill;
-            lblStearingAngleTitle.Font = new Font("Segoe UI", 15F);
-            lblStearingAngleTitle.Location = new Point(3, 0);
-            lblStearingAngleTitle.Name = "lblStearingAngleTitle";
-            lblStearingAngleTitle.Size = new Size(392, 31);
-            lblStearingAngleTitle.TabIndex = 11;
-            lblStearingAngleTitle.Text = "Stearing Angle (-45° - 45°)";
-            lblStearingAngleTitle.TextAlign = ContentAlignment.BottomCenter;
+            lblSteeringAngleTitle.AutoSize = true;
+            lblSteeringAngleTitle.Dock = DockStyle.Fill;
+            lblSteeringAngleTitle.Font = new Font("Segoe UI", 15F);
+            lblSteeringAngleTitle.Location = new Point(3, 0);
+            lblSteeringAngleTitle.Name = "lblSteeringAngleTitle";
+            lblSteeringAngleTitle.Size = new Size(392, 31);
+            lblSteeringAngleTitle.TabIndex = 11;
+            lblSteeringAngleTitle.Text = "Steering Angle (-45° - 45°)";
+            lblSteeringAngleTitle.TextAlign = ContentAlignment.BottomCenter;
             // 
             // lytKartRight
             // 
@@ -1664,8 +1664,8 @@
             lytKartCenter.ResumeLayout(false);
             pnlKartImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgKart).EndInit();
-            lytStearingAngle.ResumeLayout(false);
-            lytStearingAngle.PerformLayout();
+            lytSteeringAngle.ResumeLayout(false);
+            lytSteeringAngle.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             lytKartRight.ResumeLayout(false);
@@ -1748,8 +1748,8 @@
         private TableLayoutPanel lytKartCenter;
         private Panel pnlKartImage;
         private PictureBox imgKart;
-        private TableLayoutPanel lytStearingAngle;
-        private Label lblStearingAngleTitle;
+        private TableLayoutPanel lytSteeringAngle;
+        private Label lblSteeringAngleTitle;
         private TableLayoutPanel lytData;
         private Label lblTickFreqValue;
         private Label lblTickFreqTitle;
@@ -1806,7 +1806,7 @@
         private Label lblSpeedValue;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label8;
-        private Label lblStearAngleValue;
+        private Label lblSteerAngleValue;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label3;
         private Label label4;

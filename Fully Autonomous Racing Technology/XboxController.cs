@@ -9,7 +9,7 @@ using SharpDX.XInput;
 
 namespace Fully_Autonomous_Racing_Technology
 {
-    internal class XboxController
+    internal static class XboxController
     {
         static Controller controller;
         static Gamepad gamepad;
@@ -18,7 +18,7 @@ namespace Fully_Autonomous_Racing_Technology
         public static Point leftThumb, rightThumb = new Point(0, 0);
         public static float leftTrigger, rightTrigger;
 
-        public XboxController()
+        public static void initializeXboxController()
         {
             controller = new Controller(UserIndex.One);
             connected = controller.IsConnected;

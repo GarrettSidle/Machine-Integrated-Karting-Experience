@@ -33,7 +33,7 @@ namespace Fully_Autonomous_Racing_Technology
             lblAccelerationValue.Text = MDIParent.currentAccelertion.ToString();
             lblSpeedValue.Text = MDIParent.currentSpeed.ToString();
             labelBrakeValue.Text = MDIParent.currentBrakeStatus.ToString();
-            lblStearAngleValue.Text = MDIParent.currentStearAngle.ToString();
+            lblSteerAngleValue.Text = MDIParent.currentSteerAngle.ToString();
         }
 
         private void pltDirtyLidar_Load(object sender, EventArgs e)
@@ -46,12 +46,12 @@ namespace Fully_Autonomous_Racing_Technology
 
         }
 
-        private void lblStearingAngleTitle_Click(object sender, EventArgs e)
+        private void lblSteeringAngleTitle_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void lblStearingAngle_Click(object sender, EventArgs e)
+        private void lblSteeringAngle_Click(object sender, EventArgs e)
         {
 
         }
