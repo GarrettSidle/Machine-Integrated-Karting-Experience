@@ -31,26 +31,26 @@
             lytMainVertical = new TableLayoutPanel();
             lytBottomWarnings = new TableLayoutPanel();
             lblEstopReminder = new Label();
-            lblWarning = new Label();
             lytSatuses = new TableLayoutPanel();
             lytAutomaticStatus = new TableLayoutPanel();
-            lblAutomaticStatusTitle = new Label();
+            lblAutomaticStatus = new Label();
             imgAutomaticStatusValue = new PictureBox();
-            lytRecordingStatus = new TableLayoutPanel();
-            lblRecordingStatusTitle = new Label();
-            imgRecordingStatusValue = new PictureBox();
+            lytSoftEstopStatus = new TableLayoutPanel();
+            lblSoftEstopStatusTitle = new Label();
+            imgSoftEstopValue = new PictureBox();
             lytFlagStatus = new TableLayoutPanel();
             lblFlagStatusTitle = new Label();
             imgFlagStatusValue = new PictureBox();
-            lytManualStatus = new TableLayoutPanel();
-            lblManualStatusTitle = new Label();
+            lytRecordingStatus = new TableLayoutPanel();
+            lblRecordingStatusTitle = new Label();
+            imgRecordingStatusValue = new PictureBox();
+            lytManual = new TableLayoutPanel();
+            lblStatusManualTitle = new Label();
             imgManualStatusValue = new PictureBox();
-            lytSoftEstopStatus = new TableLayoutPanel();
-            lblSoftEstopStatusTitle = new Label();
-            imgSoftEstopStatusValue = new PictureBox();
             lytEstopStatus = new TableLayoutPanel();
             lblEstopStatusTitle = new Label();
             imgEStopStatusValue = new PictureBox();
+            lytWarningsHorizontal = new TableLayoutPanel();
             lytMainHorizontal = new TableLayoutPanel();
             lytLidar = new TableLayoutPanel();
             lytCleanLidar = new TableLayoutPanel();
@@ -67,6 +67,7 @@
             lytBrake = new TableLayoutPanel();
             labelBrakeValue = new Label();
             lblBrakeTitle = new Label();
+            lblWarning = new Label();
             lytAcceleration = new TableLayoutPanel();
             lblAccelerationTitle = new Label();
             lytAccelerationLower = new TableLayoutPanel();
@@ -74,6 +75,8 @@
             lblAccelerationValue = new Label();
             lytKartCenter = new TableLayoutPanel();
             pnlKartImage = new Panel();
+            pnlRightTire = new Panel();
+            pnlLeftTire = new Panel();
             imgKart = new PictureBox();
             lytSteeringAngle = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -120,6 +123,7 @@
             lytControllerType = new TableLayoutPanel();
             lblControllerTypeTitle = new Label();
             lblControllerTypeValue = new Label();
+            imgControllerConnection = new PictureBox();
             lytMaxJolt = new TableLayoutPanel();
             lblMaxJoltUnit = new Label();
             lytMaxJoltTitle = new Label();
@@ -133,21 +137,33 @@
             tableLayoutPanel5 = new TableLayoutPanel();
             label5 = new Label();
             label6 = new Label();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            label7 = new Label();
+            pictureBox1 = new PictureBox();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            label10 = new Label();
+            pictureBox3 = new PictureBox();
+            tableLayoutPanel9 = new TableLayoutPanel();
+            label11 = new Label();
+            pictureBox4 = new PictureBox();
+            lytWarningsVertical = new TableLayoutPanel();
+            labelWarningtTemplate = new Label();
             lytMainVertical.SuspendLayout();
             lytBottomWarnings.SuspendLayout();
             lytSatuses.SuspendLayout();
             lytAutomaticStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgAutomaticStatusValue).BeginInit();
-            lytRecordingStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)imgRecordingStatusValue).BeginInit();
+            lytSoftEstopStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imgSoftEstopValue).BeginInit();
             lytFlagStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgFlagStatusValue).BeginInit();
-            lytManualStatus.SuspendLayout();
+            lytRecordingStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imgRecordingStatusValue).BeginInit();
+            lytManual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgManualStatusValue).BeginInit();
-            lytSoftEstopStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)imgSoftEstopStatusValue).BeginInit();
             lytEstopStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgEStopStatusValue).BeginInit();
+            lytWarningsHorizontal.SuspendLayout();
             lytMainHorizontal.SuspendLayout();
             lytLidar.SuspendLayout();
             lytCleanLidar.SuspendLayout();
@@ -180,10 +196,18 @@
             lytTickFreq.SuspendLayout();
             lytOtherData.SuspendLayout();
             lytControllerType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imgControllerConnection).BeginInit();
             lytMaxJolt.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            lytWarningsVertical.SuspendLayout();
             SuspendLayout();
             // 
             // lytMainVertical
@@ -206,16 +230,16 @@
             lytBottomWarnings.ColumnCount = 1;
             lytBottomWarnings.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             lytBottomWarnings.Controls.Add(lblEstopReminder, 0, 2);
-            lytBottomWarnings.Controls.Add(lblWarning, 0, 1);
             lytBottomWarnings.Controls.Add(lytSatuses, 0, 0);
+            lytBottomWarnings.Controls.Add(lytWarningsHorizontal, 0, 1);
             lytBottomWarnings.Dock = DockStyle.Fill;
             lytBottomWarnings.Location = new Point(0, 584);
             lytBottomWarnings.Margin = new Padding(0);
             lytBottomWarnings.Name = "lytBottomWarnings";
             lytBottomWarnings.RowCount = 3;
             lytBottomWarnings.RowStyles.Add(new RowStyle(SizeType.Percent, 22.727272F));
-            lytBottomWarnings.RowStyles.Add(new RowStyle(SizeType.Percent, 32.5757561F));
-            lytBottomWarnings.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6969681F));
+            lytBottomWarnings.RowStyles.Add(new RowStyle(SizeType.Percent, 46.969696F));
+            lytBottomWarnings.RowStyles.Add(new RowStyle(SizeType.Percent, 30.30303F));
             lytBottomWarnings.Size = new Size(1450, 132);
             lytBottomWarnings.TabIndex = 13;
             // 
@@ -225,25 +249,12 @@
             lblEstopReminder.Dock = DockStyle.Fill;
             lblEstopReminder.Font = new Font("Segoe UI", 27F);
             lblEstopReminder.ForeColor = Color.Red;
-            lblEstopReminder.Location = new Point(3, 73);
+            lblEstopReminder.Location = new Point(3, 92);
             lblEstopReminder.Name = "lblEstopReminder";
-            lblEstopReminder.Size = new Size(1444, 59);
+            lblEstopReminder.Size = new Size(1444, 40);
             lblEstopReminder.TabIndex = 17;
             lblEstopReminder.Text = "Hit SPACE for E-Stop";
             lblEstopReminder.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblWarning
-            // 
-            lblWarning.AutoSize = true;
-            lblWarning.Dock = DockStyle.Fill;
-            lblWarning.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWarning.ForeColor = Color.Red;
-            lblWarning.Location = new Point(3, 30);
-            lblWarning.Name = "lblWarning";
-            lblWarning.Size = new Size(1444, 43);
-            lblWarning.TabIndex = 14;
-            lblWarning.Text = "Warning : ---------------";
-            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lytSatuses
             // 
@@ -254,11 +265,11 @@
             lytSatuses.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
             lytSatuses.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
             lytSatuses.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
-            lytSatuses.Controls.Add(lytAutomaticStatus, 3, 0);
-            lytSatuses.Controls.Add(lytRecordingStatus, 4, 0);
-            lytSatuses.Controls.Add(lytFlagStatus, 5, 0);
-            lytSatuses.Controls.Add(lytManualStatus, 2, 0);
-            lytSatuses.Controls.Add(lytSoftEstopStatus, 1, 0);
+            lytSatuses.Controls.Add(lytAutomaticStatus, 0, 0);
+            lytSatuses.Controls.Add(lytSoftEstopStatus, 0, 0);
+            lytSatuses.Controls.Add(lytFlagStatus, 3, 0);
+            lytSatuses.Controls.Add(lytRecordingStatus, 2, 0);
+            lytSatuses.Controls.Add(lytManual, 1, 0);
             lytSatuses.Controls.Add(lytEstopStatus, 0, 0);
             lytSatuses.Dock = DockStyle.Fill;
             lytSatuses.Location = new Point(0, 0);
@@ -274,29 +285,29 @@
             lytAutomaticStatus.ColumnCount = 2;
             lytAutomaticStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
             lytAutomaticStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
-            lytAutomaticStatus.Controls.Add(lblAutomaticStatusTitle, 0, 0);
+            lytAutomaticStatus.Controls.Add(lblAutomaticStatus, 0, 0);
             lytAutomaticStatus.Controls.Add(imgAutomaticStatusValue, 1, 0);
             lytAutomaticStatus.Dock = DockStyle.Fill;
-            lytAutomaticStatus.Location = new Point(723, 0);
+            lytAutomaticStatus.Location = new Point(482, 0);
             lytAutomaticStatus.Margin = new Padding(0);
             lytAutomaticStatus.Name = "lytAutomaticStatus";
             lytAutomaticStatus.RowCount = 1;
             lytAutomaticStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             lytAutomaticStatus.Size = new Size(241, 30);
-            lytAutomaticStatus.TabIndex = 18;
+            lytAutomaticStatus.TabIndex = 20;
             // 
-            // lblAutomaticStatusTitle
+            // lblAutomaticStatus
             // 
-            lblAutomaticStatusTitle.AutoSize = true;
-            lblAutomaticStatusTitle.Dock = DockStyle.Fill;
-            lblAutomaticStatusTitle.Font = new Font("Segoe UI", 11F);
-            lblAutomaticStatusTitle.Location = new Point(3, 0);
-            lblAutomaticStatusTitle.Margin = new Padding(3, 0, 0, 0);
-            lblAutomaticStatusTitle.Name = "lblAutomaticStatusTitle";
-            lblAutomaticStatusTitle.Size = new Size(142, 30);
-            lblAutomaticStatusTitle.TabIndex = 15;
-            lblAutomaticStatusTitle.Text = "Automatic :";
-            lblAutomaticStatusTitle.TextAlign = ContentAlignment.MiddleRight;
+            lblAutomaticStatus.AutoSize = true;
+            lblAutomaticStatus.Dock = DockStyle.Fill;
+            lblAutomaticStatus.Font = new Font("Segoe UI", 11F);
+            lblAutomaticStatus.Location = new Point(3, 0);
+            lblAutomaticStatus.Margin = new Padding(3, 0, 0, 0);
+            lblAutomaticStatus.Name = "lblAutomaticStatus";
+            lblAutomaticStatus.Size = new Size(142, 30);
+            lblAutomaticStatus.TabIndex = 15;
+            lblAutomaticStatus.Text = "Automatic :";
+            lblAutomaticStatus.TextAlign = ContentAlignment.MiddleRight;
             // 
             // imgAutomaticStatusValue
             // 
@@ -309,44 +320,46 @@
             imgAutomaticStatusValue.TabIndex = 0;
             imgAutomaticStatusValue.TabStop = false;
             // 
-            // lytRecordingStatus
+            // lytSoftEstopStatus
             // 
-            lytRecordingStatus.ColumnCount = 2;
-            lytRecordingStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
-            lytRecordingStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
-            lytRecordingStatus.Controls.Add(lblRecordingStatusTitle, 0, 0);
-            lytRecordingStatus.Controls.Add(imgRecordingStatusValue, 1, 0);
-            lytRecordingStatus.Location = new Point(964, 0);
-            lytRecordingStatus.Margin = new Padding(0);
-            lytRecordingStatus.Name = "lytRecordingStatus";
-            lytRecordingStatus.RowCount = 1;
-            lytRecordingStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            lytRecordingStatus.Size = new Size(241, 25);
-            lytRecordingStatus.TabIndex = 17;
+            lytSoftEstopStatus.ColumnCount = 2;
+            lytSoftEstopStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
+            lytSoftEstopStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
+            lytSoftEstopStatus.Controls.Add(lblSoftEstopStatusTitle, 0, 0);
+            lytSoftEstopStatus.Controls.Add(imgSoftEstopValue, 1, 0);
+            lytSoftEstopStatus.Dock = DockStyle.Fill;
+            lytSoftEstopStatus.Location = new Point(241, 0);
+            lytSoftEstopStatus.Margin = new Padding(0);
+            lytSoftEstopStatus.Name = "lytSoftEstopStatus";
+            lytSoftEstopStatus.RowCount = 1;
+            lytSoftEstopStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            lytSoftEstopStatus.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            lytSoftEstopStatus.Size = new Size(241, 30);
+            lytSoftEstopStatus.TabIndex = 19;
             // 
-            // lblRecordingStatusTitle
+            // lblSoftEstopStatusTitle
             // 
-            lblRecordingStatusTitle.AutoSize = true;
-            lblRecordingStatusTitle.Dock = DockStyle.Fill;
-            lblRecordingStatusTitle.Font = new Font("Segoe UI", 11F);
-            lblRecordingStatusTitle.Location = new Point(3, 0);
-            lblRecordingStatusTitle.Margin = new Padding(3, 0, 0, 0);
-            lblRecordingStatusTitle.Name = "lblRecordingStatusTitle";
-            lblRecordingStatusTitle.Size = new Size(142, 25);
-            lblRecordingStatusTitle.TabIndex = 15;
-            lblRecordingStatusTitle.Text = "Recording :";
-            lblRecordingStatusTitle.TextAlign = ContentAlignment.MiddleRight;
+            lblSoftEstopStatusTitle.AutoSize = true;
+            lblSoftEstopStatusTitle.Dock = DockStyle.Fill;
+            lblSoftEstopStatusTitle.Font = new Font("Segoe UI", 11F);
+            lblSoftEstopStatusTitle.Location = new Point(3, 0);
+            lblSoftEstopStatusTitle.Margin = new Padding(3, 0, 0, 0);
+            lblSoftEstopStatusTitle.Name = "lblSoftEstopStatusTitle";
+            lblSoftEstopStatusTitle.Size = new Size(142, 30);
+            lblSoftEstopStatusTitle.TabIndex = 15;
+            lblSoftEstopStatusTitle.Text = "Soft Estop :";
+            lblSoftEstopStatusTitle.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // imgRecordingStatusValue
+            // imgSoftEstopValue
             // 
-            imgRecordingStatusValue.Dock = DockStyle.Left;
-            imgRecordingStatusValue.Image = Properties.Resources.NullConnection;
-            imgRecordingStatusValue.Location = new Point(148, 3);
-            imgRecordingStatusValue.Name = "imgRecordingStatusValue";
-            imgRecordingStatusValue.Size = new Size(28, 19);
-            imgRecordingStatusValue.SizeMode = PictureBoxSizeMode.Zoom;
-            imgRecordingStatusValue.TabIndex = 0;
-            imgRecordingStatusValue.TabStop = false;
+            imgSoftEstopValue.Dock = DockStyle.Left;
+            imgSoftEstopValue.Image = Properties.Resources.NullConnection;
+            imgSoftEstopValue.Location = new Point(148, 3);
+            imgSoftEstopValue.Name = "imgSoftEstopValue";
+            imgSoftEstopValue.Size = new Size(28, 24);
+            imgSoftEstopValue.SizeMode = PictureBoxSizeMode.Zoom;
+            imgSoftEstopValue.TabIndex = 0;
+            imgSoftEstopValue.TabStop = false;
             // 
             // lytFlagStatus
             // 
@@ -362,7 +375,7 @@
             lytFlagStatus.RowCount = 1;
             lytFlagStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             lytFlagStatus.Size = new Size(245, 30);
-            lytFlagStatus.TabIndex = 17;
+            lytFlagStatus.TabIndex = 18;
             // 
             // lblFlagStatusTitle
             // 
@@ -388,34 +401,74 @@
             imgFlagStatusValue.TabIndex = 0;
             imgFlagStatusValue.TabStop = false;
             // 
-            // lytManualStatus
+            // lytRecordingStatus
             // 
-            lytManualStatus.ColumnCount = 2;
-            lytManualStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
-            lytManualStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
-            lytManualStatus.Controls.Add(lblManualStatusTitle, 0, 0);
-            lytManualStatus.Controls.Add(imgManualStatusValue, 1, 0);
-            lytManualStatus.Dock = DockStyle.Fill;
-            lytManualStatus.Location = new Point(482, 0);
-            lytManualStatus.Margin = new Padding(0);
-            lytManualStatus.Name = "lytManualStatus";
-            lytManualStatus.RowCount = 1;
-            lytManualStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            lytManualStatus.Size = new Size(241, 30);
-            lytManualStatus.TabIndex = 5;
+            lytRecordingStatus.ColumnCount = 2;
+            lytRecordingStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
+            lytRecordingStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
+            lytRecordingStatus.Controls.Add(lblRecordingStatusTitle, 0, 0);
+            lytRecordingStatus.Controls.Add(imgRecordingStatusValue, 1, 0);
+            lytRecordingStatus.Dock = DockStyle.Fill;
+            lytRecordingStatus.Location = new Point(964, 0);
+            lytRecordingStatus.Margin = new Padding(0);
+            lytRecordingStatus.Name = "lytRecordingStatus";
+            lytRecordingStatus.RowCount = 1;
+            lytRecordingStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            lytRecordingStatus.Size = new Size(241, 30);
+            lytRecordingStatus.TabIndex = 5;
             // 
-            // lblManualStatusTitle
+            // lblRecordingStatusTitle
             // 
-            lblManualStatusTitle.AutoSize = true;
-            lblManualStatusTitle.Dock = DockStyle.Fill;
-            lblManualStatusTitle.Font = new Font("Segoe UI", 11F);
-            lblManualStatusTitle.Location = new Point(3, 0);
-            lblManualStatusTitle.Margin = new Padding(3, 0, 0, 0);
-            lblManualStatusTitle.Name = "lblManualStatusTitle";
-            lblManualStatusTitle.Size = new Size(142, 30);
-            lblManualStatusTitle.TabIndex = 15;
-            lblManualStatusTitle.Text = "Manual :";
-            lblManualStatusTitle.TextAlign = ContentAlignment.MiddleRight;
+            lblRecordingStatusTitle.AutoSize = true;
+            lblRecordingStatusTitle.Dock = DockStyle.Fill;
+            lblRecordingStatusTitle.Font = new Font("Segoe UI", 11F);
+            lblRecordingStatusTitle.Location = new Point(3, 0);
+            lblRecordingStatusTitle.Margin = new Padding(3, 0, 0, 0);
+            lblRecordingStatusTitle.Name = "lblRecordingStatusTitle";
+            lblRecordingStatusTitle.Size = new Size(142, 30);
+            lblRecordingStatusTitle.TabIndex = 15;
+            lblRecordingStatusTitle.Text = "Recording :";
+            lblRecordingStatusTitle.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // imgRecordingStatusValue
+            // 
+            imgRecordingStatusValue.Dock = DockStyle.Left;
+            imgRecordingStatusValue.Image = Properties.Resources.NullConnection;
+            imgRecordingStatusValue.Location = new Point(148, 3);
+            imgRecordingStatusValue.Name = "imgRecordingStatusValue";
+            imgRecordingStatusValue.Size = new Size(28, 24);
+            imgRecordingStatusValue.SizeMode = PictureBoxSizeMode.Zoom;
+            imgRecordingStatusValue.TabIndex = 0;
+            imgRecordingStatusValue.TabStop = false;
+            // 
+            // lytManual
+            // 
+            lytManual.ColumnCount = 2;
+            lytManual.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
+            lytManual.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
+            lytManual.Controls.Add(lblStatusManualTitle, 0, 0);
+            lytManual.Controls.Add(imgManualStatusValue, 1, 0);
+            lytManual.Dock = DockStyle.Fill;
+            lytManual.Location = new Point(723, 0);
+            lytManual.Margin = new Padding(0);
+            lytManual.Name = "lytManual";
+            lytManual.RowCount = 1;
+            lytManual.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            lytManual.Size = new Size(241, 30);
+            lytManual.TabIndex = 1;
+            // 
+            // lblStatusManualTitle
+            // 
+            lblStatusManualTitle.AutoSize = true;
+            lblStatusManualTitle.Dock = DockStyle.Fill;
+            lblStatusManualTitle.Font = new Font("Segoe UI", 11F);
+            lblStatusManualTitle.Location = new Point(3, 0);
+            lblStatusManualTitle.Margin = new Padding(3, 0, 0, 0);
+            lblStatusManualTitle.Name = "lblStatusManualTitle";
+            lblStatusManualTitle.Size = new Size(142, 30);
+            lblStatusManualTitle.TabIndex = 15;
+            lblStatusManualTitle.Text = "Manual :";
+            lblStatusManualTitle.TextAlign = ContentAlignment.MiddleRight;
             // 
             // imgManualStatusValue
             // 
@@ -427,46 +480,6 @@
             imgManualStatusValue.SizeMode = PictureBoxSizeMode.Zoom;
             imgManualStatusValue.TabIndex = 0;
             imgManualStatusValue.TabStop = false;
-            // 
-            // lytSoftEstopStatus
-            // 
-            lytSoftEstopStatus.ColumnCount = 2;
-            lytSoftEstopStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
-            lytSoftEstopStatus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
-            lytSoftEstopStatus.Controls.Add(lblSoftEstopStatusTitle, 0, 0);
-            lytSoftEstopStatus.Controls.Add(imgSoftEstopStatusValue, 1, 0);
-            lytSoftEstopStatus.Dock = DockStyle.Fill;
-            lytSoftEstopStatus.Location = new Point(241, 0);
-            lytSoftEstopStatus.Margin = new Padding(0);
-            lytSoftEstopStatus.Name = "lytSoftEstopStatus";
-            lytSoftEstopStatus.RowCount = 1;
-            lytSoftEstopStatus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            lytSoftEstopStatus.Size = new Size(241, 30);
-            lytSoftEstopStatus.TabIndex = 1;
-            // 
-            // lblSoftEstopStatusTitle
-            // 
-            lblSoftEstopStatusTitle.AutoSize = true;
-            lblSoftEstopStatusTitle.Dock = DockStyle.Fill;
-            lblSoftEstopStatusTitle.Font = new Font("Segoe UI", 11F);
-            lblSoftEstopStatusTitle.Location = new Point(3, 0);
-            lblSoftEstopStatusTitle.Margin = new Padding(3, 0, 0, 0);
-            lblSoftEstopStatusTitle.Name = "lblSoftEstopStatusTitle";
-            lblSoftEstopStatusTitle.Size = new Size(142, 30);
-            lblSoftEstopStatusTitle.TabIndex = 15;
-            lblSoftEstopStatusTitle.Text = "Soft E-Stop :";
-            lblSoftEstopStatusTitle.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // imgSoftEstopStatusValue
-            // 
-            imgSoftEstopStatusValue.Dock = DockStyle.Left;
-            imgSoftEstopStatusValue.Image = Properties.Resources.NullConnection;
-            imgSoftEstopStatusValue.Location = new Point(148, 3);
-            imgSoftEstopStatusValue.Name = "imgSoftEstopStatusValue";
-            imgSoftEstopStatusValue.Size = new Size(28, 24);
-            imgSoftEstopStatusValue.SizeMode = PictureBoxSizeMode.Zoom;
-            imgSoftEstopStatusValue.TabIndex = 0;
-            imgSoftEstopStatusValue.TabStop = false;
             // 
             // lytEstopStatus
             // 
@@ -507,6 +520,21 @@
             imgEStopStatusValue.SizeMode = PictureBoxSizeMode.Zoom;
             imgEStopStatusValue.TabIndex = 0;
             imgEStopStatusValue.TabStop = false;
+            // 
+            // lytWarningsHorizontal
+            // 
+            lytWarningsHorizontal.ColumnCount = 2;
+            lytWarningsHorizontal.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            lytWarningsHorizontal.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            lytWarningsHorizontal.Controls.Add(lblWarning, 0, 0);
+            lytWarningsHorizontal.Controls.Add(lytWarningsVertical, 1, 0);
+            lytWarningsHorizontal.Dock = DockStyle.Fill;
+            lytWarningsHorizontal.Location = new Point(3, 33);
+            lytWarningsHorizontal.Name = "lytWarningsHorizontal";
+            lytWarningsHorizontal.RowCount = 1;
+            lytWarningsHorizontal.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            lytWarningsHorizontal.Size = new Size(1444, 56);
+            lytWarningsHorizontal.TabIndex = 18;
             // 
             // lytMainHorizontal
             // 
@@ -733,6 +761,19 @@
             lblBrakeTitle.Text = "Brake";
             lblBrakeTitle.TextAlign = ContentAlignment.BottomCenter;
             // 
+            // lblWarning
+            // 
+            lblWarning.AutoSize = true;
+            lblWarning.Dock = DockStyle.Right;
+            lblWarning.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblWarning.ForeColor = Color.Red;
+            lblWarning.Location = new Point(581, 0);
+            lblWarning.Name = "lblWarning";
+            lblWarning.Size = new Size(138, 56);
+            lblWarning.TabIndex = 14;
+            lblWarning.Text = "Warning :";
+            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // lytAcceleration
             // 
             lytAcceleration.ColumnCount = 1;
@@ -817,6 +858,8 @@
             // 
             // pnlKartImage
             // 
+            pnlKartImage.Controls.Add(pnlRightTire);
+            pnlKartImage.Controls.Add(pnlLeftTire);
             pnlKartImage.Controls.Add(imgKart);
             pnlKartImage.Dock = DockStyle.Fill;
             pnlKartImage.Location = new Point(0, 63);
@@ -824,6 +867,23 @@
             pnlKartImage.Name = "pnlKartImage";
             pnlKartImage.Size = new Size(398, 521);
             pnlKartImage.TabIndex = 9;
+            // 
+            // pnlRightTire
+            // 
+            pnlRightTire.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnlRightTire.BackColor = Color.Black;
+            pnlRightTire.Location = new Point(315, 97);
+            pnlRightTire.Name = "pnlRightTire";
+            pnlRightTire.Size = new Size(41, 85);
+            pnlRightTire.TabIndex = 3;
+            // 
+            // pnlLeftTire
+            // 
+            pnlLeftTire.BackColor = Color.Black;
+            pnlLeftTire.Location = new Point(45, 97);
+            pnlLeftTire.Name = "pnlLeftTire";
+            pnlLeftTire.Size = new Size(41, 85);
+            pnlLeftTire.TabIndex = 2;
             // 
             // imgKart
             // 
@@ -1410,11 +1470,14 @@
             // 
             // lytControllerType
             // 
-            lytControllerType.ColumnCount = 2;
-            lytControllerType.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.99715F));
-            lytControllerType.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.00285F));
+            lytControllerType.ColumnCount = 4;
+            lytControllerType.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.1380463F));
+            lytControllerType.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.08832F));
+            lytControllerType.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8.54700851F));
+            lytControllerType.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.9259262F));
             lytControllerType.Controls.Add(lblControllerTypeTitle, 0, 0);
             lytControllerType.Controls.Add(lblControllerTypeValue, 1, 0);
+            lytControllerType.Controls.Add(imgControllerConnection, 2, 0);
             lytControllerType.Location = new Point(0, 112);
             lytControllerType.Margin = new Padding(0);
             lytControllerType.Name = "lytControllerType";
@@ -1430,7 +1493,7 @@
             lblControllerTypeTitle.Font = new Font("Segoe UI", 15F);
             lblControllerTypeTitle.Location = new Point(3, 0);
             lblControllerTypeTitle.Name = "lblControllerTypeTitle";
-            lblControllerTypeTitle.Size = new Size(173, 27);
+            lblControllerTypeTitle.Size = new Size(158, 27);
             lblControllerTypeTitle.TabIndex = 12;
             lblControllerTypeTitle.Text = "Controller Type : ";
             lblControllerTypeTitle.TextAlign = ContentAlignment.MiddleRight;
@@ -1440,12 +1503,23 @@
             lblControllerTypeValue.AutoSize = true;
             lblControllerTypeValue.Dock = DockStyle.Fill;
             lblControllerTypeValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-            lblControllerTypeValue.Location = new Point(182, 0);
+            lblControllerTypeValue.Location = new Point(167, 0);
             lblControllerTypeValue.Name = "lblControllerTypeValue";
-            lblControllerTypeValue.Size = new Size(166, 27);
+            lblControllerTypeValue.Size = new Size(60, 27);
             lblControllerTypeValue.TabIndex = 13;
             lblControllerTypeValue.Text = " ---- ";
             lblControllerTypeValue.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // imgControllerConnection
+            // 
+            imgControllerConnection.Dock = DockStyle.Fill;
+            imgControllerConnection.Image = Properties.Resources.NullConnection;
+            imgControllerConnection.Location = new Point(233, 3);
+            imgControllerConnection.Name = "imgControllerConnection";
+            imgControllerConnection.Size = new Size(23, 21);
+            imgControllerConnection.SizeMode = PictureBoxSizeMode.Zoom;
+            imgControllerConnection.TabIndex = 14;
+            imgControllerConnection.TabStop = false;
             // 
             // lytMaxJolt
             // 
@@ -1471,9 +1545,9 @@
             lblMaxJoltUnit.Font = new Font("Segoe UI", 15F);
             lblMaxJoltUnit.Location = new Point(236, 0);
             lblMaxJoltUnit.Name = "lblMaxJoltUnit";
-            lblMaxJoltUnit.Size = new Size(28, 27);
+            lblMaxJoltUnit.Size = new Size(20, 27);
             lblMaxJoltUnit.TabIndex = 18;
-            lblMaxJoltUnit.Text = "%";
+            lblMaxJoltUnit.Text = "°";
             lblMaxJoltUnit.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lytMaxJoltTitle
@@ -1614,6 +1688,147 @@
             label6.Text = "##";
             label6.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 2;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
+            tableLayoutPanel6.Controls.Add(label7, 0, 0);
+            tableLayoutPanel6.Dock = DockStyle.Fill;
+            tableLayoutPanel6.Location = new Point(0, 0);
+            tableLayoutPanel6.Margin = new Padding(0);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel6.Size = new Size(200, 100);
+            tableLayoutPanel6.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Dock = DockStyle.Fill;
+            label7.Font = new Font("Segoe UI", 11F);
+            label7.Location = new Point(3, 0);
+            label7.Margin = new Padding(3, 0, 0, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(118, 100);
+            label7.TabIndex = 16;
+            label7.Text = "Flag :";
+            label7.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = Properties.Resources.NullConnection;
+            pictureBox1.Location = new Point(124, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(28, 94);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
+            tableLayoutPanel8.Controls.Add(label10, 0, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(0, 0);
+            tableLayoutPanel8.Margin = new Padding(0);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel8.Size = new Size(200, 100);
+            tableLayoutPanel8.TabIndex = 0;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Dock = DockStyle.Fill;
+            label10.Font = new Font("Segoe UI", 11F);
+            label10.Location = new Point(3, 0);
+            label10.Margin = new Padding(3, 0, 0, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(118, 100);
+            label10.TabIndex = 15;
+            label10.Text = "Automatic :";
+            label10.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Dock = DockStyle.Left;
+            pictureBox3.Image = Properties.Resources.NullConnection;
+            pictureBox3.Location = new Point(124, 3);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(28, 94);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.ColumnCount = 2;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.56338F));
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.43662F));
+            tableLayoutPanel9.Controls.Add(label11, 0, 0);
+            tableLayoutPanel9.Dock = DockStyle.Fill;
+            tableLayoutPanel9.Location = new Point(0, 0);
+            tableLayoutPanel9.Margin = new Padding(0);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.RowCount = 1;
+            tableLayoutPanel9.Size = new Size(200, 100);
+            tableLayoutPanel9.TabIndex = 0;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Dock = DockStyle.Fill;
+            label11.Font = new Font("Segoe UI", 11F);
+            label11.Location = new Point(3, 0);
+            label11.Margin = new Padding(3, 0, 0, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(118, 100);
+            label11.TabIndex = 15;
+            label11.Text = "Automatic :";
+            label11.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Dock = DockStyle.Left;
+            pictureBox4.Image = Properties.Resources.NullConnection;
+            pictureBox4.Location = new Point(124, 3);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(28, 94);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 0;
+            pictureBox4.TabStop = false;
+            // 
+            // lytWarningsVertical
+            // 
+            lytWarningsVertical.ColumnCount = 1;
+            lytWarningsVertical.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            lytWarningsVertical.Controls.Add(labelWarningtTemplate, 0, 0);
+            lytWarningsVertical.Dock = DockStyle.Fill;
+            lytWarningsVertical.Location = new Point(725, 3);
+            lytWarningsVertical.Name = "lytWarningsVertical";
+            lytWarningsVertical.RowCount = 1;
+            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            lytWarningsVertical.Size = new Size(716, 50);
+            lytWarningsVertical.TabIndex = 15;
+            // 
+            // labelWarningtTemplate
+            // 
+            labelWarningtTemplate.AutoSize = true;
+            labelWarningtTemplate.ForeColor = Color.FromArgb(192, 0, 0);
+            labelWarningtTemplate.Location = new Point(3, 0);
+            labelWarningtTemplate.Name = "labelWarningtTemplate";
+            labelWarningtTemplate.Size = new Size(32, 15);
+            labelWarningtTemplate.TabIndex = 0;
+            labelWarningtTemplate.Text = "-----";
+            // 
             // FrmHome
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1623,6 +1838,7 @@
             Controls.Add(lytMainVertical);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FrmHome";
+            Load += FrmHome_Load;
             lytMainVertical.ResumeLayout(false);
             lytBottomWarnings.ResumeLayout(false);
             lytBottomWarnings.PerformLayout();
@@ -1630,21 +1846,23 @@
             lytAutomaticStatus.ResumeLayout(false);
             lytAutomaticStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgAutomaticStatusValue).EndInit();
-            lytRecordingStatus.ResumeLayout(false);
-            lytRecordingStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)imgRecordingStatusValue).EndInit();
+            lytSoftEstopStatus.ResumeLayout(false);
+            lytSoftEstopStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imgSoftEstopValue).EndInit();
             lytFlagStatus.ResumeLayout(false);
             lytFlagStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgFlagStatusValue).EndInit();
-            lytManualStatus.ResumeLayout(false);
-            lytManualStatus.PerformLayout();
+            lytRecordingStatus.ResumeLayout(false);
+            lytRecordingStatus.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imgRecordingStatusValue).EndInit();
+            lytManual.ResumeLayout(false);
+            lytManual.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgManualStatusValue).EndInit();
-            lytSoftEstopStatus.ResumeLayout(false);
-            lytSoftEstopStatus.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)imgSoftEstopStatusValue).EndInit();
             lytEstopStatus.ResumeLayout(false);
             lytEstopStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgEStopStatusValue).EndInit();
+            lytWarningsHorizontal.ResumeLayout(false);
+            lytWarningsHorizontal.PerformLayout();
             lytMainHorizontal.ResumeLayout(false);
             lytLidar.ResumeLayout(false);
             lytCleanLidar.ResumeLayout(false);
@@ -1695,6 +1913,7 @@
             lytOtherData.ResumeLayout(false);
             lytControllerType.ResumeLayout(false);
             lytControllerType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imgControllerConnection).EndInit();
             lytMaxJolt.ResumeLayout(false);
             lytMaxJolt.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
@@ -1703,6 +1922,17 @@
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
+            tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            tableLayoutPanel9.ResumeLayout(false);
+            tableLayoutPanel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            lytWarningsVertical.ResumeLayout(false);
+            lytWarningsVertical.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1713,21 +1943,12 @@
         private Label lblEstopReminder;
         private Label lblWarning;
         private TableLayoutPanel lytSatuses;
-        private TableLayoutPanel lytAutomaticStatus;
-        private Label lblAutomaticStatusTitle;
-        private PictureBox imgAutomaticStatusValue;
         private TableLayoutPanel lytRecordingStatus;
         private Label lblRecordingStatusTitle;
         private PictureBox imgRecordingStatusValue;
-        private TableLayoutPanel lytFlagStatus;
-        private Label lblFlagStatusTitle;
-        private PictureBox imgFlagStatusValue;
-        private TableLayoutPanel lytManualStatus;
-        private Label lblManualStatusTitle;
+        private TableLayoutPanel lytManual;
+        private Label lblStatusManualTitle;
         private PictureBox imgManualStatusValue;
-        private TableLayoutPanel lytSoftEstopStatus;
-        private Label lblSoftEstopStatusTitle;
-        private PictureBox imgSoftEstopStatusValue;
         private TableLayoutPanel lytEstopStatus;
         private Label lblEstopStatusTitle;
         private PictureBox imgEStopStatusValue;
@@ -1813,5 +2034,29 @@
         private TableLayoutPanel tableLayoutPanel5;
         private Label label5;
         private Label label6;
+        private PictureBox imgControllerConnection;
+        private Panel pnlLeftTire;
+        private Panel pnlRightTire;
+        private TableLayoutPanel tableLayoutPanel6;
+        private Label label7;
+        private PictureBox pictureBox1;
+        private TableLayoutPanel lytSoftEstopStatus;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label label10;
+        private PictureBox pictureBox3;
+        private Label lblSoftEstopStatusTitle;
+        private PictureBox imgSoftEstopValue;
+        private TableLayoutPanel lytFlagStatus;
+        private Label lblFlagStatusTitle;
+        private PictureBox imgFlagStatusValue;
+        private TableLayoutPanel lytAutomaticStatus;
+        private Label lblAutomaticStatus;
+        private PictureBox imgAutomaticStatusValue;
+        private TableLayoutPanel tableLayoutPanel9;
+        private Label label11;
+        private PictureBox pictureBox4;
+        private TableLayoutPanel lytWarningsHorizontal;
+        private TableLayoutPanel lytWarningsVertical;
+        private Label labelWarningtTemplate;
     }
 }

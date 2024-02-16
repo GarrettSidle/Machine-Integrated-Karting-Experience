@@ -30,6 +30,7 @@ namespace Fully_Autonomous_Racing_Technology
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent));
             pageSelectorToolStrip = new ToolStrip();
             lblHomeSelector = new ToolStripLabel();
             Tool = new ToolStripSeparator();
@@ -215,13 +216,14 @@ namespace Fully_Autonomous_Racing_Technology
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1169, 635);
-            ControlBox = false;
             Controls.Add(pageSelectorToolStrip);
             Controls.Add(connectivityToolStrip);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Name = "MDIParent";
+            Text = "Fully Autonomous Racing Technology (F.A.R.T.)";
             TopMost = true;
             WindowState = FormWindowState.Maximized;
             Load += MDIParent_Load;

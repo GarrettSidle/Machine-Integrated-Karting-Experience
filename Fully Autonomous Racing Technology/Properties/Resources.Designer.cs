@@ -83,6 +83,16 @@ namespace Fully_Autonomous_Racing_Technology.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FalseIndicator {
+            get {
+                object obj = ResourceManager.GetObject("FalseIndicator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Kart {
             get {
                 object obj = ResourceManager.GetObject("Kart", resourceCulture);
@@ -106,6 +116,16 @@ namespace Fully_Autonomous_Racing_Technology.Properties {
         internal static System.Drawing.Bitmap Simulated {
             get {
                 object obj = ResourceManager.GetObject("Simulated", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TrueIndicator {
+            get {
+                object obj = ResourceManager.GetObject("TrueIndicator", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
