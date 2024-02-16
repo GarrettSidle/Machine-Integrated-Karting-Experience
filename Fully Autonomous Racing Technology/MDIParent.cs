@@ -13,7 +13,7 @@ using Flee;
 using System.ComponentModel.Design.Serialization;
 using System.CodeDom;
 
-namespace Fully_Autonomous_Racing_Technology
+namespace Machine_Integrated_Karting_Experience
 {
     public partial class MDIParent : Form
     {

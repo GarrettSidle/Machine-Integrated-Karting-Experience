@@ -11,7 +11,7 @@ using System.Drawing;
 using ScottPlot;
 using ScottPlot.Plottables;
 
-namespace Fully_Autonomous_Racing_Technology
+namespace Machine_Integrated_Karting_Experience
 {
     public partial class FrmHome : Form
     {

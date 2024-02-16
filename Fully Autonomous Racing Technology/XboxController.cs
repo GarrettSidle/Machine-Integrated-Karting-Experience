@@ -8,7 +8,7 @@ using SharpDX;
 using SharpDX.XInput;
 using System.Data;
 
-namespace Fully_Autonomous_Racing_Technology
+namespace Machine_Integrated_Karting_Experience
 {
     internal static class XboxController
     {

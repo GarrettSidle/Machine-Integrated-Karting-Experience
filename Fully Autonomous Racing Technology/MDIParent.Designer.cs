@@ -1,5 +1,5 @@
 ﻿
-namespace Fully_Autonomous_Racing_Technology
+namespace Machine_Integrated_Karting_Experience
 {
     partial class MDIParent
     {
@@ -223,7 +223,7 @@ namespace Fully_Autonomous_Racing_Technology
             Icon = (Icon)resources.GetObject("$this.Icon");
             IsMdiContainer = true;
             Name = "MDIParent";
-            Text = "Fully Autonomous Racing Technology (F.A.R.T.)";
+            Text = "Machine Integrated Karting Experience (M.I.K.E.)";
             TopMost = true;
             WindowState = FormWindowState.Maximized;
             Load += MDIParent_Load;

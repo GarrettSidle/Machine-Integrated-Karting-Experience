@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Fully_Autonomous_Racing_Technology
+namespace Machine_Integrated_Karting_Experience
 {
     public partial class FrmEventCRUD : Form
     {

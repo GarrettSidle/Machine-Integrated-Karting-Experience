@@ -1,4 +1,4 @@
-namespace Fully_Autonomous_Racing_Technology
+namespace Machine_Integrated_Karting_Experience
 {
     internal static class Program
     {
