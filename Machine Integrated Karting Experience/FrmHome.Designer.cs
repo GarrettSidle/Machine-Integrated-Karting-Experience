@@ -51,6 +51,9 @@
             lblEstopStatusTitle = new Label();
             imgEStopStatusValue = new PictureBox();
             lytWarningsHorizontal = new TableLayoutPanel();
+            lblWarning = new Label();
+            lytWarningsVertical = new TableLayoutPanel();
+            labelWarningtTemplate = new Label();
             lytMainHorizontal = new TableLayoutPanel();
             lytLidar = new TableLayoutPanel();
             lytCleanLidar = new TableLayoutPanel();
@@ -67,7 +70,6 @@
             lytBrake = new TableLayoutPanel();
             labelBrakeValue = new Label();
             lblBrakeTitle = new Label();
-            lblWarning = new Label();
             lytAcceleration = new TableLayoutPanel();
             lblAccelerationTitle = new Label();
             lytAccelerationLower = new TableLayoutPanel();
@@ -146,8 +148,11 @@
             tableLayoutPanel9 = new TableLayoutPanel();
             label11 = new Label();
             pictureBox4 = new PictureBox();
-            lytWarningsVertical = new TableLayoutPanel();
-            labelWarningtTemplate = new Label();
+            lytLegend = new TableLayoutPanel();
+            lblLegend = new Label();
+            lblLegendRead = new Label();
+            lblLegendCalculated = new Label();
+            lblLegendSetting = new Label();
             lytMainVertical.SuspendLayout();
             lytBottomWarnings.SuspendLayout();
             lytSatuses.SuspendLayout();
@@ -164,6 +169,7 @@
             lytEstopStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgEStopStatusValue).BeginInit();
             lytWarningsHorizontal.SuspendLayout();
+            lytWarningsVertical.SuspendLayout();
             lytMainHorizontal.SuspendLayout();
             lytLidar.SuspendLayout();
             lytCleanLidar.SuspendLayout();
@@ -207,7 +213,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            lytWarningsVertical.SuspendLayout();
+            lytLegend.SuspendLayout();
             SuspendLayout();
             // 
             // lytMainVertical
@@ -502,6 +508,7 @@
             lblEstopStatusTitle.AutoSize = true;
             lblEstopStatusTitle.Dock = DockStyle.Fill;
             lblEstopStatusTitle.Font = new Font("Segoe UI", 11F);
+            lblEstopStatusTitle.ForeColor = Color.Green;
             lblEstopStatusTitle.Location = new Point(3, 0);
             lblEstopStatusTitle.Margin = new Padding(3, 0, 0, 0);
             lblEstopStatusTitle.Name = "lblEstopStatusTitle";
@@ -535,6 +542,44 @@
             lytWarningsHorizontal.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             lytWarningsHorizontal.Size = new Size(1444, 56);
             lytWarningsHorizontal.TabIndex = 18;
+            // 
+            // lblWarning
+            // 
+            lblWarning.AutoSize = true;
+            lblWarning.Dock = DockStyle.Right;
+            lblWarning.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblWarning.ForeColor = Color.Red;
+            lblWarning.Location = new Point(581, 0);
+            lblWarning.Name = "lblWarning";
+            lblWarning.Size = new Size(138, 56);
+            lblWarning.TabIndex = 14;
+            lblWarning.Text = "Warning :";
+            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lytWarningsVertical
+            // 
+            lytWarningsVertical.ColumnCount = 1;
+            lytWarningsVertical.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            lytWarningsVertical.Controls.Add(labelWarningtTemplate, 0, 0);
+            lytWarningsVertical.Dock = DockStyle.Fill;
+            lytWarningsVertical.Location = new Point(725, 3);
+            lytWarningsVertical.Name = "lytWarningsVertical";
+            lytWarningsVertical.RowCount = 1;
+            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            lytWarningsVertical.Size = new Size(716, 50);
+            lytWarningsVertical.TabIndex = 15;
+            // 
+            // labelWarningtTemplate
+            // 
+            labelWarningtTemplate.AutoSize = true;
+            labelWarningtTemplate.ForeColor = Color.FromArgb(192, 0, 0);
+            labelWarningtTemplate.Location = new Point(3, 0);
+            labelWarningtTemplate.Name = "labelWarningtTemplate";
+            labelWarningtTemplate.Size = new Size(32, 15);
+            labelWarningtTemplate.TabIndex = 0;
+            labelWarningtTemplate.Text = "-----";
             // 
             // lytMainHorizontal
             // 
@@ -631,6 +676,7 @@
             lblConeOfCaringValue.AutoSize = true;
             lblConeOfCaringValue.Dock = DockStyle.Fill;
             lblConeOfCaringValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblConeOfCaringValue.ForeColor = Color.DarkGoldenrod;
             lblConeOfCaringValue.Location = new Point(3, 29);
             lblConeOfCaringValue.Name = "lblConeOfCaringValue";
             lblConeOfCaringValue.Size = new Size(356, 29);
@@ -712,13 +758,15 @@
             lytKartLeft.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             lytKartLeft.Controls.Add(lytBrake, 0, 1);
             lytKartLeft.Controls.Add(lytAcceleration, 0, 0);
+            lytKartLeft.Controls.Add(lytLegend, 0, 3);
             lytKartLeft.Dock = DockStyle.Fill;
             lytKartLeft.Location = new Point(3, 3);
             lytKartLeft.Name = "lytKartLeft";
-            lytKartLeft.RowCount = 3;
-            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 22.3183384F));
-            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 44.46367F));
+            lytKartLeft.RowCount = 4;
+            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 33.2961464F));
+            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 22.2934437F));
+            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 22.205204F));
+            lytKartLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 22.205204F));
             lytKartLeft.Size = new Size(158, 578);
             lytKartLeft.TabIndex = 13;
             // 
@@ -742,6 +790,7 @@
             labelBrakeValue.AutoSize = true;
             labelBrakeValue.Dock = DockStyle.Fill;
             labelBrakeValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            labelBrakeValue.ForeColor = Color.Teal;
             labelBrakeValue.Location = new Point(3, 43);
             labelBrakeValue.Name = "labelBrakeValue";
             labelBrakeValue.Size = new Size(146, 43);
@@ -760,19 +809,6 @@
             lblBrakeTitle.TabIndex = 13;
             lblBrakeTitle.Text = "Brake";
             lblBrakeTitle.TextAlign = ContentAlignment.BottomCenter;
-            // 
-            // lblWarning
-            // 
-            lblWarning.AutoSize = true;
-            lblWarning.Dock = DockStyle.Right;
-            lblWarning.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblWarning.ForeColor = Color.Red;
-            lblWarning.Location = new Point(581, 0);
-            lblWarning.Name = "lblWarning";
-            lblWarning.Size = new Size(138, 56);
-            lblWarning.TabIndex = 14;
-            lblWarning.Text = "Warning :";
-            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lytAcceleration
             // 
@@ -821,6 +857,7 @@
             lblAccelerationUnit.AutoSize = true;
             lblAccelerationUnit.Dock = DockStyle.Fill;
             lblAccelerationUnit.Font = new Font("Segoe UI", 15F);
+            lblAccelerationUnit.ForeColor = Color.Teal;
             lblAccelerationUnit.Location = new Point(76, 0);
             lblAccelerationUnit.Name = "lblAccelerationUnit";
             lblAccelerationUnit.Size = new Size(67, 34);
@@ -833,6 +870,7 @@
             lblAccelerationValue.AutoSize = true;
             lblAccelerationValue.Dock = DockStyle.Fill;
             lblAccelerationValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblAccelerationValue.ForeColor = Color.Teal;
             lblAccelerationValue.Location = new Point(3, 0);
             lblAccelerationValue.Name = "lblAccelerationValue";
             lblAccelerationValue.Size = new Size(67, 34);
@@ -933,6 +971,7 @@
             label8.AutoSize = true;
             label8.Dock = DockStyle.Fill;
             label8.Font = new Font("Segoe UI", 15F);
+            label8.ForeColor = Color.Teal;
             label8.Location = new Point(211, 0);
             label8.Margin = new Padding(0);
             label8.Name = "label8";
@@ -946,6 +985,7 @@
             lblSteerAngleValue.AutoSize = true;
             lblSteerAngleValue.Dock = DockStyle.Fill;
             lblSteerAngleValue.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSteerAngleValue.ForeColor = Color.Teal;
             lblSteerAngleValue.Location = new Point(0, 0);
             lblSteerAngleValue.Margin = new Padding(0);
             lblSteerAngleValue.Name = "lblSteerAngleValue";
@@ -1027,6 +1067,7 @@
             lblSpeedUnit.AutoSize = true;
             lblSpeedUnit.Dock = DockStyle.Fill;
             lblSpeedUnit.Font = new Font("Segoe UI", 15F);
+            lblSpeedUnit.ForeColor = Color.Green;
             lblSpeedUnit.Location = new Point(75, 0);
             lblSpeedUnit.Name = "lblSpeedUnit";
             lblSpeedUnit.Size = new Size(67, 34);
@@ -1039,6 +1080,7 @@
             lblSpeedValue.AutoSize = true;
             lblSpeedValue.Dock = DockStyle.Fill;
             lblSpeedValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblSpeedValue.ForeColor = Color.Green;
             lblSpeedValue.Location = new Point(3, 0);
             lblSpeedValue.Name = "lblSpeedValue";
             lblSpeedValue.Size = new Size(66, 34);
@@ -1116,6 +1158,7 @@
             lblRunTypeDescription.AutoSize = true;
             lblRunTypeDescription.Dock = DockStyle.Left;
             lblRunTypeDescription.Font = new Font("Segoe UI", 15F);
+            lblRunTypeDescription.ForeColor = Color.DarkGoldenrod;
             lblRunTypeDescription.Location = new Point(236, 0);
             lblRunTypeDescription.Name = "lblRunTypeDescription";
             lblRunTypeDescription.Size = new Size(71, 27);
@@ -1140,6 +1183,7 @@
             lblRunTypeValue.AutoSize = true;
             lblRunTypeValue.Dock = DockStyle.Fill;
             lblRunTypeValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblRunTypeValue.ForeColor = Color.DarkGoldenrod;
             lblRunTypeValue.Location = new Point(181, 0);
             lblRunTypeValue.Name = "lblRunTypeValue";
             lblRunTypeValue.Size = new Size(49, 27);
@@ -1180,6 +1224,7 @@
             lblFrameNumberValue.AutoSize = true;
             lblFrameNumberValue.Dock = DockStyle.Fill;
             lblFrameNumberValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblFrameNumberValue.ForeColor = Color.Teal;
             lblFrameNumberValue.Location = new Point(181, 0);
             lblFrameNumberValue.Name = "lblFrameNumberValue";
             lblFrameNumberValue.Size = new Size(49, 26);
@@ -1220,6 +1265,7 @@
             lblRunNumberValue.AutoSize = true;
             lblRunNumberValue.Dock = DockStyle.Fill;
             lblRunNumberValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblRunNumberValue.ForeColor = Color.Teal;
             lblRunNumberValue.Location = new Point(181, 0);
             lblRunNumberValue.Name = "lblRunNumberValue";
             lblRunNumberValue.Size = new Size(49, 26);
@@ -1259,6 +1305,7 @@
             lblDateTimeValue.AutoSize = true;
             lblDateTimeValue.Dock = DockStyle.Fill;
             lblDateTimeValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblDateTimeValue.ForeColor = Color.Green;
             lblDateTimeValue.Location = new Point(182, 0);
             lblDateTimeValue.Name = "lblDateTimeValue";
             lblDateTimeValue.Size = new Size(166, 27);
@@ -1328,6 +1375,7 @@
             lblTickEfficiencyUnit.AutoSize = true;
             lblTickEfficiencyUnit.Dock = DockStyle.Left;
             lblTickEfficiencyUnit.Font = new Font("Segoe UI", 15F);
+            lblTickEfficiencyUnit.ForeColor = Color.Teal;
             lblTickEfficiencyUnit.Location = new Point(236, 0);
             lblTickEfficiencyUnit.Name = "lblTickEfficiencyUnit";
             lblTickEfficiencyUnit.Size = new Size(28, 26);
@@ -1340,6 +1388,7 @@
             lblTickEfficiencyValue.AutoSize = true;
             lblTickEfficiencyValue.Dock = DockStyle.Fill;
             lblTickEfficiencyValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblTickEfficiencyValue.ForeColor = Color.Teal;
             lblTickEfficiencyValue.Location = new Point(181, 0);
             lblTickEfficiencyValue.Name = "lblTickEfficiencyValue";
             lblTickEfficiencyValue.Size = new Size(49, 26);
@@ -1381,6 +1430,7 @@
             lblTickCapacityUnit.AutoSize = true;
             lblTickCapacityUnit.Dock = DockStyle.Left;
             lblTickCapacityUnit.Font = new Font("Segoe UI", 15F);
+            lblTickCapacityUnit.ForeColor = Color.Teal;
             lblTickCapacityUnit.Location = new Point(236, 0);
             lblTickCapacityUnit.Name = "lblTickCapacityUnit";
             lblTickCapacityUnit.Size = new Size(35, 26);
@@ -1393,6 +1443,7 @@
             lblTickCapacityValue.AutoSize = true;
             lblTickCapacityValue.Dock = DockStyle.Fill;
             lblTickCapacityValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblTickCapacityValue.ForeColor = Color.Teal;
             lblTickCapacityValue.Location = new Point(181, 0);
             lblTickCapacityValue.Name = "lblTickCapacityValue";
             lblTickCapacityValue.Size = new Size(49, 26);
@@ -1434,6 +1485,7 @@
             lblTickFreqUnit.AutoSize = true;
             lblTickFreqUnit.Dock = DockStyle.Left;
             lblTickFreqUnit.Font = new Font("Segoe UI", 15F);
+            lblTickFreqUnit.ForeColor = Color.DarkGoldenrod;
             lblTickFreqUnit.Location = new Point(236, 0);
             lblTickFreqUnit.Name = "lblTickFreqUnit";
             lblTickFreqUnit.Size = new Size(35, 26);
@@ -1446,6 +1498,7 @@
             lblTickFreqValue.AutoSize = true;
             lblTickFreqValue.Dock = DockStyle.Fill;
             lblTickFreqValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblTickFreqValue.ForeColor = Color.DarkGoldenrod;
             lblTickFreqValue.Location = new Point(181, 0);
             lblTickFreqValue.Name = "lblTickFreqValue";
             lblTickFreqValue.Size = new Size(49, 26);
@@ -1503,6 +1556,7 @@
             lblControllerTypeValue.AutoSize = true;
             lblControllerTypeValue.Dock = DockStyle.Fill;
             lblControllerTypeValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblControllerTypeValue.ForeColor = Color.DarkGoldenrod;
             lblControllerTypeValue.Location = new Point(167, 0);
             lblControllerTypeValue.Name = "lblControllerTypeValue";
             lblControllerTypeValue.Size = new Size(60, 27);
@@ -1543,6 +1597,7 @@
             lblMaxJoltUnit.AutoSize = true;
             lblMaxJoltUnit.Dock = DockStyle.Left;
             lblMaxJoltUnit.Font = new Font("Segoe UI", 15F);
+            lblMaxJoltUnit.ForeColor = Color.DarkGoldenrod;
             lblMaxJoltUnit.Location = new Point(236, 0);
             lblMaxJoltUnit.Name = "lblMaxJoltUnit";
             lblMaxJoltUnit.Size = new Size(20, 27);
@@ -1567,6 +1622,7 @@
             lblMaxJoltValue.AutoSize = true;
             lblMaxJoltValue.Dock = DockStyle.Fill;
             lblMaxJoltValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblMaxJoltValue.ForeColor = Color.DarkGoldenrod;
             lblMaxJoltValue.Location = new Point(181, 0);
             lblMaxJoltValue.Name = "lblMaxJoltValue";
             lblMaxJoltValue.Size = new Size(49, 27);
@@ -1804,30 +1860,75 @@
             pictureBox4.TabIndex = 0;
             pictureBox4.TabStop = false;
             // 
-            // lytWarningsVertical
+            // lytLegend
             // 
-            lytWarningsVertical.ColumnCount = 1;
-            lytWarningsVertical.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            lytWarningsVertical.Controls.Add(labelWarningtTemplate, 0, 0);
-            lytWarningsVertical.Dock = DockStyle.Fill;
-            lytWarningsVertical.Location = new Point(725, 3);
-            lytWarningsVertical.Name = "lytWarningsVertical";
-            lytWarningsVertical.RowCount = 1;
-            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            lytWarningsVertical.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            lytWarningsVertical.Size = new Size(716, 50);
-            lytWarningsVertical.TabIndex = 15;
+            lytLegend.ColumnCount = 1;
+            lytLegend.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            lytLegend.Controls.Add(lblLegendSetting, 0, 3);
+            lytLegend.Controls.Add(lblLegendCalculated, 0, 2);
+            lytLegend.Controls.Add(lblLegendRead, 0, 1);
+            lytLegend.Controls.Add(lblLegend, 0, 0);
+            lytLegend.Dock = DockStyle.Fill;
+            lytLegend.Location = new Point(3, 451);
+            lytLegend.Name = "lytLegend";
+            lytLegend.RowCount = 4;
+            lytLegend.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            lytLegend.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            lytLegend.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            lytLegend.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            lytLegend.Size = new Size(152, 124);
+            lytLegend.TabIndex = 2;
             // 
-            // labelWarningtTemplate
+            // lblLegend
             // 
-            labelWarningtTemplate.AutoSize = true;
-            labelWarningtTemplate.ForeColor = Color.FromArgb(192, 0, 0);
-            labelWarningtTemplate.Location = new Point(3, 0);
-            labelWarningtTemplate.Name = "labelWarningtTemplate";
-            labelWarningtTemplate.Size = new Size(32, 15);
-            labelWarningtTemplate.TabIndex = 0;
-            labelWarningtTemplate.Text = "-----";
+            lblLegend.AutoSize = true;
+            lblLegend.Dock = DockStyle.Fill;
+            lblLegend.Font = new Font("Segoe UI", 13F, FontStyle.Bold | FontStyle.Underline);
+            lblLegend.Location = new Point(3, 0);
+            lblLegend.Name = "lblLegend";
+            lblLegend.Size = new Size(146, 31);
+            lblLegend.TabIndex = 0;
+            lblLegend.Text = "Legend";
+            lblLegend.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLegendRead
+            // 
+            lblLegendRead.AutoSize = true;
+            lblLegendRead.Dock = DockStyle.Fill;
+            lblLegendRead.Font = new Font("Segoe UI", 13F);
+            lblLegendRead.ForeColor = Color.Green;
+            lblLegendRead.Location = new Point(3, 31);
+            lblLegendRead.Name = "lblLegendRead";
+            lblLegendRead.Size = new Size(146, 31);
+            lblLegendRead.TabIndex = 1;
+            lblLegendRead.Text = "Read Value";
+            lblLegendRead.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLegendCalculated
+            // 
+            lblLegendCalculated.AutoSize = true;
+            lblLegendCalculated.Dock = DockStyle.Fill;
+            lblLegendCalculated.Font = new Font("Segoe UI", 13F);
+            lblLegendCalculated.ForeColor = Color.Teal;
+            lblLegendCalculated.Location = new Point(3, 62);
+            lblLegendCalculated.Name = "lblLegendCalculated";
+            lblLegendCalculated.Size = new Size(146, 31);
+            lblLegendCalculated.TabIndex = 2;
+            lblLegendCalculated.Text = "Calculated Value";
+            lblLegendCalculated.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblLegendSetting
+            // 
+            lblLegendSetting.AutoSize = true;
+            lblLegendSetting.Dock = DockStyle.Fill;
+            lblLegendSetting.Font = new Font("Segoe UI", 13F);
+            lblLegendSetting.ForeColor = Color.DarkGoldenrod;
+            lblLegendSetting.Location = new Point(3, 93);
+            lblLegendSetting.Name = "lblLegendSetting";
+            lblLegendSetting.Size = new Size(146, 31);
+            lblLegendSetting.TabIndex = 3;
+            lblLegendSetting.Text = "Config Value";
+            lblLegendSetting.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FrmHome
             // 
@@ -1863,6 +1964,8 @@
             ((System.ComponentModel.ISupportInitialize)imgEStopStatusValue).EndInit();
             lytWarningsHorizontal.ResumeLayout(false);
             lytWarningsHorizontal.PerformLayout();
+            lytWarningsVertical.ResumeLayout(false);
+            lytWarningsVertical.PerformLayout();
             lytMainHorizontal.ResumeLayout(false);
             lytLidar.ResumeLayout(false);
             lytCleanLidar.ResumeLayout(false);
@@ -1931,8 +2034,8 @@
             tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            lytWarningsVertical.ResumeLayout(false);
-            lytWarningsVertical.PerformLayout();
+            lytLegend.ResumeLayout(false);
+            lytLegend.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -2058,5 +2161,10 @@
         private TableLayoutPanel lytWarningsHorizontal;
         private TableLayoutPanel lytWarningsVertical;
         private Label labelWarningtTemplate;
+        private TableLayoutPanel lytLegend;
+        private Label lblLegendSetting;
+        private Label lblLegendCalculated;
+        private Label lblLegendRead;
+        private Label lblLegend;
     }
 }

@@ -101,7 +101,7 @@ namespace Machine_Integrated_Karting_Experience
             pltCleanLidar.Plot.Clear();
             addConeofCaring();
 
-            lblDateTimeValue.Text = DateTime.Now.ToString();
+            lblDateTimeValue.Text = DateTime.Now.Date.ToString() + "\n" + DateTime.Now.TimeOfDay.ToString();
 
             int nodeCount = MDIParent.lidarData.Count();
 

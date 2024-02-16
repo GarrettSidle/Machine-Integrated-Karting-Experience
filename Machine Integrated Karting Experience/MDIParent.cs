@@ -37,7 +37,7 @@ namespace Machine_Integrated_Karting_Experience
 
                 if (tickCapacityValue != null & tickCapacityValue != 0)
                 {
-                    tickEffiecencyValue = (int)tickRateValue / (int)tickCapacityValue;
+                    tickEffiecencyValue = 100 * (int)tickRateValue / (int)tickCapacityValue;
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace Machine_Integrated_Karting_Experience
 
                 if (tickRateValue != null & tickCapacityValue != 0)
                 {
-                    tickEffiecencyValue = (int) tickRateValue / (int)tickCapacityValue;
+                    tickEffiecencyValue = 100 * (int) tickRateValue / (int)tickCapacityValue;
                 }
             }
         }
@@ -286,12 +286,13 @@ namespace Machine_Integrated_Karting_Experience
         {
             FrmHome frmHome = (FrmHome)getScreen("Home");
 
-            tmrLoop.Interval = (int)Math.Round(1.0 / (int)tickRate);
-
             //update indicators based on current values
             frmHome.updateHomeSettingsIndicators();
             updateParentSettingsIndicators();
             frmHome.updateHomeIndicators();
+
+            //update the loop frequency
+            tmrLoop.Interval = (int)Math.Round(1000.0 / (int)tickRate);
         }
 
 
@@ -303,6 +304,7 @@ namespace Machine_Integrated_Karting_Experience
             imgRaspPiStatus.Image = getStatusImageFromCode(statusRaspPi);
             imgEstopConttrollerStatus.Image = getStatusImageFromCode(statusEStopConttroller);
             imgDatabaseStatus.Image = getStatusImageFromCode(statusDatabase);
+
         }
 
         public static Bitmap getStatusImageFromCode(int statusCode)
