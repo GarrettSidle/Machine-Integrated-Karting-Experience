@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Flee;
 using System.ComponentModel.Design.Serialization;
 using System.CodeDom;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Machine_Integrated_Karting_Experience
 {
@@ -51,7 +52,7 @@ namespace Machine_Integrated_Karting_Experience
 
                 if (tickRateValue != null & tickCapacityValue != 0)
                 {
-                    tickEffiecencyValue = 100 * (int) tickRateValue / (int)tickCapacityValue;
+                    tickEffiecencyValue = 100 * (int)tickRateValue / (int)tickCapacityValue;
                 }
             }
         }
@@ -116,7 +117,7 @@ namespace Machine_Integrated_Karting_Experience
         }
 
 
-        
+
         //
         //Connectivity Status
         //
@@ -161,21 +162,52 @@ namespace Machine_Integrated_Karting_Experience
         //current cart status
         //
         public static int currentSpeed;
-        // 1 = safe, 0 = Estop hit
-        public static bool currentEstop;
+        // 0 = Estop hit, 1 = Estop hit
+        private static bool currentEstopValue;
+        public static bool currentEstop
+        {
+            get { return currentEstopValue; }
+            set
+            {
+                currentEstopValue = value;
+                if (currentEstopValue)
+                {
+                    isRecording = false;
+                    isFlagging = false;
+                }
+
+            }
+        }
 
         //
         //program status flags
         //
-        public static bool currentSoftEstop;
+        private static bool currentSoftEstopValue;
+        public static bool currentSoftEstop
+        {
+            get { return currentSoftEstopValue; }
+            set
+            {
+                currentSoftEstopValue = value;
+                if (currentSoftEstopValue)
+                {
+                    isRecording = false;
+                    isFlagging = false;
+                }
+
+            }
+        }
 
         private static bool isManualValue = true;
         public static bool isManual
         {
             get { return isManualValue; }
-            set { 
+            set
+            {
                 isManualValue = value;
                 isAutoValue = !isManualValue;
+                isRecording = false;
+                isFlagging = false;
             }
         }
 
@@ -183,9 +215,12 @@ namespace Machine_Integrated_Karting_Experience
         public static bool isAuto
         {
             get { return isAutoValue; }
-            set { 
+            set
+            {
                 isAutoValue = value;
                 isManualValue = !isAutoValue;
+                isRecording = false;
+                isFlagging = false;
             }
         }
 
@@ -195,9 +230,14 @@ namespace Machine_Integrated_Karting_Experience
             get { return isRecordingValue; }
             set
             {
-                if (isAutoValue)
+                if (isAutoValue && value)
                 {
-                    MessageBox.Show("The cart must be in manual to record", "Error setting isAuto =" + value.ToString());
+                    MessageBox.Show("The cart must be in manual to record", "Error setting isRecording =" + value.ToString());
+                    return;
+                }
+                if ((currentSoftEstop || currentEstop) && value)
+                {
+                    MessageBox.Show("The cart cannot be in estop when altering this value", "Error setting isRecording =" + value.ToString());
                     return;
                 }
                 isRecordingValue = value;
@@ -210,14 +250,19 @@ namespace Machine_Integrated_Karting_Experience
             get { return isFlaggingValue; }
             set
             {
-                if (isAutoValue)
+                if (isAutoValue && value)
                 {
                     MessageBox.Show("The cart must be in manual to flag", "Error setting isFlagging = " + value.ToString());
                     return;
                 }
-                if (isRecordingValue)
+                if (!isRecordingValue && value)
                 {
-                    MessageBox.Show("The cart must be recording to flag", "Error setting isRecording =" + value.ToString());
+                    MessageBox.Show("The cart must be recording to flag", "Error setting isFlagging =" + value.ToString());
+                    return;
+                }
+                if ((currentSoftEstop || currentEstop) && value)
+                {
+                    MessageBox.Show("The cart cannot be in estop when altering this value", "Error setting isFlagging =" + value.ToString());
                     return;
                 }
                 isFlaggingValue = value;
@@ -249,7 +294,7 @@ namespace Machine_Integrated_Karting_Experience
         #endregion
 
 
-         
+
         public MDIParent()
         {
             InitializeComponent();
@@ -270,7 +315,7 @@ namespace Machine_Integrated_Karting_Experience
             //get starting settings
             getSettings();
 
-            if(controllerType == "xbox") 
+            if (controllerType == "xbox")
             {
                 XboxController.initializeXboxController();
             }
@@ -293,6 +338,8 @@ namespace Machine_Integrated_Karting_Experience
 
             //update the loop frequency
             tmrLoop.Interval = (int)Math.Round(1000.0 / (int)tickRate);
+
+            //set up the ket press event
         }
 
 
@@ -317,7 +364,7 @@ namespace Machine_Integrated_Karting_Experience
                     return Properties.Resources.Disconnected;
                 case SUCCESS_CONNECTION_STATUS:
                     return Properties.Resources.Connected;
-                case SIMULATE_CONNECTION_STATUS : 
+                case SIMULATE_CONNECTION_STATUS:
                     return Properties.Resources.Simulated;
                 default:
                     return null;
@@ -356,10 +403,10 @@ namespace Machine_Integrated_Karting_Experience
             maxSpeed = int.Parse(ConfigurationManager.AppSettings["maxSpeed"]);
             maxAccelertionPercent = int.Parse(ConfigurationManager.AppSettings["maxAccelertionPercent"]);
             statusEStopConttroller = ConfigurationManager.AppSettings["simulateEStopConttroller"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
-            statusLidar = ConfigurationManager.AppSettings["simulateLidar"] == "1" ? SIMULATE_CONNECTION_STATUS: NULL_CONNECTION_STATUS;
-            statusRaspPi = ConfigurationManager.AppSettings["simulateRaspPi"] == "1" ? SIMULATE_CONNECTION_STATUS: NULL_CONNECTION_STATUS;
-            statusDatabase = ConfigurationManager.AppSettings["simulateDatabase"] == "1" ? SIMULATE_CONNECTION_STATUS: NULL_CONNECTION_STATUS;
-            statusMotorController = ConfigurationManager.AppSettings["simulateMotorController"] == "1" ? SIMULATE_CONNECTION_STATUS: NULL_CONNECTION_STATUS;
+            statusLidar = ConfigurationManager.AppSettings["simulateLidar"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
+            statusRaspPi = ConfigurationManager.AppSettings["simulateRaspPi"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
+            statusDatabase = ConfigurationManager.AppSettings["simulateDatabase"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
+            statusMotorController = ConfigurationManager.AppSettings["simulateMotorController"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
         }
 
         Stopwatch watch = new Stopwatch();
@@ -368,7 +415,7 @@ namespace Machine_Integrated_Karting_Experience
         {
             //start the timer to calculate tick capacity
             watch.Restart();
-       
+
 
 
             FrmHome frmHome = (FrmHome)MDIParent.getScreen("Home");
@@ -415,7 +462,7 @@ namespace Machine_Integrated_Karting_Experience
                 //do not get movement
                 return;
             }
-            
+
             if (isAuto)
             {
                 Auto.getAutonomousMovement();
@@ -423,8 +470,8 @@ namespace Machine_Integrated_Karting_Experience
             }
             if (isManual & controllerType == "xbox")
             {
-                 XboxController.updateXboxData();
-                 return;
+                XboxController.updateXboxData();
+                return;
             }
             if (isManual & controllerType == "rf")
             {
@@ -435,16 +482,15 @@ namespace Machine_Integrated_Karting_Experience
 
         private void checkCurrentsoftEstop()
         {
-            bool estopState= false;
-            //TODO
-            //estopState = ManualEstop || estopState;
+            bool estopState = false;
+            estopState = FrmHome.manualSoftEstop || estopState;
             if (controllerType == "xbox")
             {
                 estopState = XboxController.XboxSoftEstop || estopState;
             }
             if (controllerType == "rf")
             {
-                //estopState = RF.RFSoftEstop || estopState;
+                estopState = RF.RFSoftEstop || estopState;
             }
 
             currentSoftEstop = estopState;

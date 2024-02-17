@@ -21,7 +21,7 @@ namespace Machine_Integrated_Karting_Experience
         private static int connectionAttempts = 0;
         private static int framesUntilDisconect;
         private static int maxjoltPerFrame;
-        public static bool XboxSoftEstop;
+        public static bool XboxSoftEstop = true;
 
         public static void initializeXboxController()
         {
@@ -45,14 +45,14 @@ namespace Machine_Integrated_Karting_Experience
                 if(connectionAttempts > framesUntilDisconect)
                 {
                     //update the estop
-                    XboxSoftEstop = false;
+                    XboxSoftEstop = true;
                 }
 
                 return;
             }
             //reset the connection and cancel the current estop
             connectionAttempts = 0;
-            XboxSoftEstop = true;
+            XboxSoftEstop = false;
             MDIParent.statusController = MDIParent.SUCCESS_CONNECTION_STATUS;
 
 

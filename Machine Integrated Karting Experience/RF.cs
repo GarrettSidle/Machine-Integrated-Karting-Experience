@@ -8,6 +8,7 @@ namespace Machine_Integrated_Karting_Experience
 {
     internal class RF
     {
+        public static bool RFSoftEstop = true;
         public static void updateRFData()
         {
 

@@ -15,6 +15,8 @@ namespace Machine_Integrated_Karting_Experience
 {
     public partial class FrmHome : Form
     {
+        public static bool manualSoftEstop = true;
+
         const double KART_WIDTH_HEIGHT_RATIO = 0.89;
         const double PERC_TIRE_TO_WIDTH = .108;
         const double PERC_TIRE_TO_HEIGHT = .188;
@@ -105,6 +107,8 @@ namespace Machine_Integrated_Karting_Experience
 
             int nodeCount = MDIParent.lidarData.Count();
 
+            //TODO
+
             //Coordinates coords; ;
             //for (int i = 0; i < nodeCount; i++)
             //{
@@ -123,39 +127,101 @@ namespace Machine_Integrated_Karting_Experience
 
 
 
-        private void pltDirtyLidar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pltCleanLidar_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSteeringAngleTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblSteeringAngle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTickFreqValue_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmHome_Load(object sender, EventArgs e)
         {
             initializeTires();
         }
+
+        #region Estop events
+
+        //Todo add space for estop
+        private void imgSoftEstopValue_Click(object sender, EventArgs e)
+        {
+            manualSoftEstop = !manualSoftEstop;
+        }
+
+        private void lblSoftEstopStatusTitle_Click(object sender, EventArgs e)
+        {
+            manualSoftEstop = !manualSoftEstop;
+        }
+
+        private void lytSoftEstopStatus_Click(object sender, EventArgs e)
+        {
+            manualSoftEstop = !manualSoftEstop;
+        }
+
+
+        #endregion
+
+        #region Automatic events
+        private void lytAutomaticStatus_Click(object sender, EventArgs e)
+        {
+            MDIParent.isAuto = !MDIParent.isAuto;
+        }
+
+        private void imgAutomaticStatusValue_Click(object sender, EventArgs e)
+        {
+            MDIParent.isAuto = !MDIParent.isAuto;
+        }
+
+        private void lblAutomaticStatus_Click(object sender, EventArgs e)
+        {
+            MDIParent.isAuto = !MDIParent.isAuto;
+        }
+
+        #endregion
+
+        #region manual events
+        private void lytManual_Click(object sender, EventArgs e)
+        {
+            MDIParent.isManual = !MDIParent.isManual;
+        }
+
+        private void imgManualStatusValue_Click(object sender, EventArgs e)
+        {
+            MDIParent.isManual = !MDIParent.isManual;
+        }
+
+        private void lblStatusManualTitle_Click(object sender, EventArgs e)
+        {
+            MDIParent.isManual = !MDIParent.isManual;
+        }
+        #endregion
+
+        #region recording events
+
+        private void lytRecordingStatus_Click(object sender, EventArgs e)
+        {
+            MDIParent.isRecording = !MDIParent.isRecording;
+        }
+
+        private void imgRecordingStatusValue_Click(object sender, EventArgs e)
+        {
+            MDIParent.isRecording = !MDIParent.isRecording;
+        }
+
+        private void lblRecordingStatusTitle_Click(object sender, EventArgs e)
+        {
+            MDIParent.isRecording = !MDIParent.isRecording;
+        }
+        #endregion
+
+        #region flag events
+        private void lytFlagStatus_Click(object sender, EventArgs e)
+        {
+            MDIParent.isFlagging = true;
+        }
+
+        private void imgFlagStatusValue_Click(object sender, EventArgs e)
+        {
+            MDIParent.isFlagging = true;
+        }
+
+        private void lblFlagStatusTitle_Click(object sender, EventArgs e)
+        {
+            MDIParent.isFlagging = true;
+        }
+
+        #endregion
     }
 }
