@@ -55,10 +55,20 @@ namespace Machine_Integrated_Karting_Experience
             XboxSoftEstop = false;
             MDIParent.statusController = MDIParent.SUCCESS_CONNECTION_STATUS;
 
-
-            gamepad = controller.GetState().Gamepad;
+            //if we are in Sstop
+            if(MDIParent.currentEstop || MDIParent.currentSoftEstop)
+            {
+                //stop the kart
+                MDIParent.currentBrakeStatus = true;
+                MDIParent.currentAccelertion = 0;
+                MDIParent.currentSteerAngle = 0;
+                return;
+            }
 
             //get the current controller state
+            gamepad = controller.GetState().Gamepad;
+
+            //get the values that we car about
             leftThumb.X = (int)Math.Round((Math.Abs((float)gamepad.LeftThumbX) < deadband) ? 0 : (float)gamepad.LeftThumbX / short.MinValue * -100);
             rightThumb.X = (int)Math.Round((Math.Abs((float)gamepad.RightThumbY) < deadband) ? 0 : (float)gamepad.RightThumbY / short.MaxValue * 100);
 

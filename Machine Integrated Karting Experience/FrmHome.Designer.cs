@@ -1389,7 +1389,7 @@
             // 
             lblDateTimeValue.AutoSize = true;
             lblDateTimeValue.Dock = DockStyle.Fill;
-            lblDateTimeValue.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblDateTimeValue.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDateTimeValue.ForeColor = Color.Green;
             lblDateTimeValue.Location = new Point(182, 0);
             lblDateTimeValue.Name = "lblDateTimeValue";

@@ -63,6 +63,8 @@ namespace Machine_Integrated_Karting_Experience
             lblControllerTypeValue.Text = MDIParent.controllerType;
             lblConeOfCaringValue.Text = MDIParent.coneOfCaring;
 
+            //TODO get run type name from number
+
             addConeofCaring();
 
             //.Text = MDIParent.maxSpeed.ToString();
@@ -103,7 +105,11 @@ namespace Machine_Integrated_Karting_Experience
             pltCleanLidar.Plot.Clear();
             addConeofCaring();
 
-            lblDateTimeValue.Text = DateTime.Now.Date.ToString() + "\n" + DateTime.Now.TimeOfDay.ToString();
+
+            lblRunNumberValue.Text = MDIParent.runNumber.ToString();
+            lblFrameNumberValue.Text = MDIParent.runFrame.ToString();
+            lblDateTimeValue.Text = DateTime.Now.ToString();
+
 
             int nodeCount = MDIParent.lidarData.Count();
 
