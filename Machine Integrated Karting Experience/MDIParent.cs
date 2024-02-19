@@ -102,7 +102,7 @@ namespace Machine_Integrated_Karting_Experience
             }
         }
 
-        //TODO
+        //TODO, Dynamically get cone of caring from config
         public static CodeExpression coneOfCaringEuation = new CodeExpression();
 
         private static string coneOfCaringValue;
@@ -240,6 +240,9 @@ namespace Machine_Integrated_Karting_Experience
                     MessageBox.Show("The cart cannot be in estop when altering this value", "Error setting isRecording =" + value.ToString());
                     return;
                 }
+                //TODO, Warning : Cannot record with simulated MC / Lidar / Pi, if the database is live
+                //TODO, Warning : Cannot record with disconected MC / Lidar / Pi
+
                 isRecordingValue = value;
             }
         }
@@ -293,7 +296,7 @@ namespace Machine_Integrated_Karting_Experience
 
         #endregion
 
-
+        //TODO, add swap screen logic
 
         public MDIParent()
         {
@@ -305,6 +308,9 @@ namespace Machine_Integrated_Karting_Experience
 
             FrmEventCRUD eventCRUD = new FrmEventCRUD();
             screens.Add("EventCRUD", eventCRUD);
+
+            FrmSettings settings = new FrmSettings();
+            screens.Add("Settings", settings);
 
             mdiParent = this;
 
@@ -322,7 +328,7 @@ namespace Machine_Integrated_Karting_Experience
             if (controllerType == "rf")
             {
                 //TODO
-                //XboxController.initializeXboxController();
+                //RF.initializeXboxController();
             }
 
         }
@@ -429,7 +435,8 @@ namespace Machine_Integrated_Karting_Experience
 
             RaspPi.writeMovesToPi();
 
-
+            //TODO, stop recordings if disconected MC / Lidar / Pi 
+            //TODO, stop recordings if estop is hit
 
             Database.writeToDatabase();
 
@@ -495,10 +502,12 @@ namespace Machine_Integrated_Karting_Experience
 
             currentSoftEstop = estopState;
 
+            //if we are in Estop
             if (currentSoftEstop)
             {
-                //todo
-                //write brake to pie
+                //stop the vehicle
+                currentAccelertion = 0;
+                currentBrakeStatus = true;
             }
         }
 

@@ -10,7 +10,8 @@ namespace Machine_Integrated_Karting_Experience
     {
         public static void getMCData()
         {
-
+            //TODO add MCConroller soft Estop disconected logic
+            //TODO Add MCController Connection
         }
     }
 }

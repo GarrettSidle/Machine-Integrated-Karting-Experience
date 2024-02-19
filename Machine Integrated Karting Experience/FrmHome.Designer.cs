@@ -1361,8 +1361,8 @@
             // lytDateTime
             // 
             lytDateTime.ColumnCount = 2;
-            lytDateTime.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.99715F));
-            lytDateTime.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.00285F));
+            lytDateTime.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            lytDateTime.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
             lytDateTime.Controls.Add(lblDateTimeTitle, 0, 0);
             lytDateTime.Controls.Add(lblDateTimeValue, 1, 0);
             lytDateTime.Location = new Point(0, 162);

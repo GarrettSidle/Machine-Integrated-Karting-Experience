@@ -11,7 +11,8 @@ namespace Machine_Integrated_Karting_Experience
         public static bool RFSoftEstop = true;
         public static void updateRFData()
         {
-
+            //TODO RF disconnected soft Estop logic
+            //TODO Connect to RF, and decode 
         }
     }
 }

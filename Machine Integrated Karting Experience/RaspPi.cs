@@ -10,7 +10,8 @@ namespace Machine_Integrated_Karting_Experience
     {
         public static void writeMovesToPi()
         {
-
+            //TODO, disconnected Rasp pi soft estop logic
+            //TODO Connect to rasp pi
         }
     }
 }

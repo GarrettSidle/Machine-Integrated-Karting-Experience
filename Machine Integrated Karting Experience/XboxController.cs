@@ -91,6 +91,8 @@ namespace Machine_Integrated_Karting_Experience
                 MDIParent.currentSteerAngle = newAngle;
             }
 
+            //TODO, press B for estop, press x for flag
+
             //convert acceleration to a value between (1-100)
             MDIParent.currentAccelertion = (int)Math.Round((XboxController.rightTrigger / 255.0) * 100);
             //convert the brake value to a discrete value

@@ -13,6 +13,7 @@ using ScottPlot.Plottables;
 
 namespace Machine_Integrated_Karting_Experience
 {
+
     public partial class FrmHome : Form
     {
         public static bool manualSoftEstop = true;
@@ -63,7 +64,7 @@ namespace Machine_Integrated_Karting_Experience
             lblControllerTypeValue.Text = MDIParent.controllerType;
             lblConeOfCaringValue.Text = MDIParent.coneOfCaring;
 
-            //TODO get run type name from number
+            //TODO Get run type from run number in DB
 
             addConeofCaring();
 
@@ -74,7 +75,7 @@ namespace Machine_Integrated_Karting_Experience
 
         public void addConeofCaring()
         {
-            //TODO, dynaically add
+            //TODO, dynamically use cone of caring in lidar display (lines)
             pltCleanLidar.Plot.Add.Line(new Coordinates(-10, 10), new Coordinates(0, 0));
             pltCleanLidar.Plot.Add.Line(new Coordinates(10, 10), new Coordinates(0, 0));
         }
@@ -86,6 +87,18 @@ namespace Machine_Integrated_Karting_Experience
             lblSpeedValue.Text = MDIParent.currentSpeed.ToString();
             labelBrakeValue.Text = MDIParent.currentBrakeStatus.ToString();
             lblSteerAngleValue.Text = MDIParent.currentSteerAngle.ToString();
+
+            //TODO add acceleration bar, add logic to update acceleration bar
+            //TODO add brakes display, add logic to update brakes display
+            //TODO add speedometer, add logic to update speedometer
+
+            //TODO Warnings
+
+            //TODO tilt tires
+
+            //TODO, add Max velocity label, add from config
+            //TODO, add max acceleration label, add from config
+            //TODO, add Max maxDisconnectTime label, add from config
 
             //update tick settings
             lblTickCapacityValue.Text = MDIParent.tickCapacity.ToString();
@@ -113,14 +126,14 @@ namespace Machine_Integrated_Karting_Experience
 
             int nodeCount = MDIParent.lidarData.Count();
 
-            //TODO
+            //TODO Add lidar points to the graph
 
             //Coordinates coords; ;
             //for (int i = 0; i < nodeCount; i++)
             //{
             //    coords = new Coordinates(MDIParent.lidarData[i].X, MDIParent.lidarData[i].Y);
             //    pltDirtyLidar.Plot.Add.Circle(coords, .1);
-            //    //TODO, add dynamically
+            //    //TODO, dynamically use cone of caring to clean lidar data
             //    if (MDIParent.lidarData[i].Y >= (.5 * Math.Abs(MDIParent.lidarData[i].X)))
             //    {
             //        pltCleanLidar.Plot.Add.Circle(coords, .1);
@@ -128,6 +141,8 @@ namespace Machine_Integrated_Karting_Experience
             //}
             //pltCleanLidar.Update();
 
+
+            //TODO, add node count to home, dynaically update node count label
 
         }
 
@@ -140,7 +155,7 @@ namespace Machine_Integrated_Karting_Experience
 
         #region Estop events
 
-        //Todo add space for estop
+        //Todo add space press for estop
         private void imgSoftEstopValue_Click(object sender, EventArgs e)
         {
             manualSoftEstop = !manualSoftEstop;
@@ -227,6 +242,8 @@ namespace Machine_Integrated_Karting_Experience
         {
             MDIParent.isFlagging = true;
         }
+
+        //TODO, add enter press for flag
 
         #endregion
     }

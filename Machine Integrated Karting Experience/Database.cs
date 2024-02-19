@@ -14,6 +14,13 @@ namespace Machine_Integrated_Karting_Experience
             {
                 return;
             }
+            //TODO finalize Database
+            //TODO Dynamically add connection string to config
+            //TODO Recording SQL 
+
+            //TODO CRUD SQL statement
+            //TODO add cancel flag logic
+
         }
     }
 }

@@ -10,14 +10,11 @@ using System.Windows.Forms;
 
 namespace Machine_Integrated_Karting_Experience
 {
-    public partial class FrmEventCRUD : Form
+    public partial class FrmSettings : Form
     {
-        public FrmEventCRUD()
+        public FrmSettings()
         {
             InitializeComponent();
         }
-
-        //TODO, add CRUD Page
-
     }
 }

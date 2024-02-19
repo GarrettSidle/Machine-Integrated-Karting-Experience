@@ -20,14 +20,16 @@ namespace Machine_Integrated_Karting_Experience
                 generateMockData();
                 return;
             }
+            //TODO add lidar connectivity logic
 
 
-            //TODO connect lidar
+            //TODO get lidar points logic
 
         }
 
         private static void generateMockData()
         {
+            //TODO, fix lidar simulation (might be functional ??)
             Point[] mockLidar = new Point[MOCK_POINT_COUNT];
 
             Random rand = new Random();
