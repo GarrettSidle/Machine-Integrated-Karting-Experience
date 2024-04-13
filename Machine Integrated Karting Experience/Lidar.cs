@@ -15,7 +15,7 @@ namespace Machine_Integrated_Karting_Experience
 
         public static void getLidar()
         {
-            if (MDIParent.statusLidar == MDIParent.SIMULATE_CONNECTION_STATUS)
+            if (MDIParent.statusLidar == MDIParent.ConnectionStatus.Simulated)
             {
                 generateMockData();
                 return;

@@ -72,6 +72,7 @@ namespace Machine_Integrated_Karting_Experience
             lblHomeSelector.Name = "lblHomeSelector";
             lblHomeSelector.Size = new Size(40, 22);
             lblHomeSelector.Text = "Home";
+            lblHomeSelector.Click += lblHomeSelector_Click;
             // 
             // Tool
             // 
@@ -84,6 +85,7 @@ namespace Machine_Integrated_Karting_Experience
             lblCRUDSelector.Name = "lblCRUDSelector";
             lblCRUDSelector.Size = new Size(89, 22);
             lblCRUDSelector.Text = "Database CRUD";
+            lblCRUDSelector.Click += lblCRUDSelector_Click;
             // 
             // toolStripSeparator8
             // 
@@ -96,6 +98,7 @@ namespace Machine_Integrated_Karting_Experience
             lblSettingsSellector.Name = "lblSettingsSellector";
             lblSettingsSellector.Size = new Size(49, 22);
             lblSettingsSellector.Text = "Settings";
+            lblSettingsSellector.Click += lblSettingsSellector_Click;
             // 
             // lblDatabaseStatus
             // 
@@ -226,7 +229,6 @@ namespace Machine_Integrated_Karting_Experience
             Text = "Machine Integrated Karting Experience (M.I.K.E.)";
             TopMost = true;
             WindowState = FormWindowState.Maximized;
-            Load += MDIParent_Load;
             pageSelectorToolStrip.ResumeLayout(false);
             pageSelectorToolStrip.PerformLayout();
             connectivityToolStrip.ResumeLayout(false);

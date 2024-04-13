@@ -13,12 +13,13 @@ using Flee;
 using System.ComponentModel.Design.Serialization;
 using System.CodeDom;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static Machine_Integrated_Karting_Experience.MDIParent;
 
 namespace Machine_Integrated_Karting_Experience
 {
     public partial class MDIParent : Form
     {
-        public static IDictionary<string, Form> screens = new Dictionary<string, Form>();
+        public static IDictionary<Screens, Form> screens = new Dictionary<Screens, Form>();
         public static MDIParent mdiParent;
 
 
@@ -36,7 +37,7 @@ namespace Machine_Integrated_Karting_Experience
             {
                 tickRateValue = value;
 
-                if (tickCapacityValue != null & tickCapacityValue != 0)
+                if (tickCapacityValue != null && tickCapacityValue != 0)
                 {
                     tickEffiecencyValue = 100 * (int)tickRateValue / (int)tickCapacityValue;
                 }
@@ -50,7 +51,7 @@ namespace Machine_Integrated_Karting_Experience
             {
                 tickCapacityValue = value;
 
-                if (tickRateValue != null & tickCapacityValue != 0)
+                if (tickRateValue != null && tickCapacityValue != 0)
                 {
                     tickEffiecencyValue = 100 * (int)tickRateValue / (int)tickCapacityValue;
                 }
@@ -71,7 +72,7 @@ namespace Machine_Integrated_Karting_Experience
             get { return maxAccelertionPercentValue; }
             set
             {
-                if (value >= 0 & value <= 100)
+                if (value >= 0 && value <= 100)
                 {
                     maxAccelertionPercentValue = value;
                     return;
@@ -80,27 +81,7 @@ namespace Machine_Integrated_Karting_Experience
             }
         }
 
-        private static string controllerTypeValue;
-        public static string controllerType
-        {
-            get { return controllerTypeValue; }
-            set
-            {
-                value = value.ToLower();
-
-                if (value == "xbox")
-                {
-                    controllerTypeValue = value;
-                    return;
-                }
-                if (value == "rf")
-                {
-                    controllerTypeValue = value;
-                    return;
-                }
-                throw new ArgumentException("controllerType ouside of expected values ( 'Xbox' or 'RF')");
-            }
-        }
+        public static Controllers controllerType;
 
         //TODO, Dynamically get cone of caring from config
         public static CodeExpression coneOfCaringEuation = new CodeExpression();
@@ -117,21 +98,12 @@ namespace Machine_Integrated_Karting_Experience
         }
 
 
-
-        //
-        //Connectivity Status
-        //
-        public const int NULL_CONNECTION_STATUS = 0;
-        public const int FAILED_CONNECTION_STATUS = 1;
-        public const int SUCCESS_CONNECTION_STATUS = 2;
-        public const int SIMULATE_CONNECTION_STATUS = 3;
-
-        public static int statusEStopConttroller;
-        public static int statusLidar;
-        public static int statusRaspPi;
-        public static int statusDatabase;
-        public static int statusMotorController;
-        public static int statusController;
+        public static ConnectionStatus statusEStopConttroller;
+        public static ConnectionStatus statusLidar;
+        public static ConnectionStatus statusRaspPi;
+        public static ConnectionStatus statusDatabase;
+        public static ConnectionStatus statusMotorController;
+        public static ConnectionStatus statusController;
         public static bool isControllerConnected;
 
         //
@@ -272,6 +244,32 @@ namespace Machine_Integrated_Karting_Experience
             }
         }
 
+
+        //
+        //Connectivity Status
+        //
+        public enum ConnectionStatus
+        {
+            Null,
+            Failed,
+            Success,
+            Simulated
+        }
+
+        public enum Screens
+        {
+            Null,
+            Home,
+            CRUD,
+            Settings
+        }
+
+        public enum Controllers
+        {
+            Xbox,
+            RF
+        }
+
         //
         //
         //
@@ -303,39 +301,31 @@ namespace Machine_Integrated_Karting_Experience
             InitializeComponent();
 
             //initialize each screen and add it to the screens array
-            FrmHome home = new FrmHome();
-            screens.Add("Home", home);
+            FrmHome frmHome = new FrmHome();
+            screens.Add(Screens.Home, frmHome);
 
             FrmEventCRUD eventCRUD = new FrmEventCRUD();
-            screens.Add("EventCRUD", eventCRUD);
+            screens.Add(Screens.CRUD, eventCRUD);
 
             FrmSettings settings = new FrmSettings();
-            screens.Add("Settings", settings);
+            screens.Add(Screens.Settings, settings);
 
             mdiParent = this;
 
-            home.MdiParent = this;
-            home.Dock = DockStyle.Fill;
-            home.Show();
+            swapScreen(Screens.Home);
 
             //get starting settings
             getSettings();
 
-            if (controllerType == "xbox")
+            if (controllerType == Controllers.Xbox)
             {
                 XboxController.initializeXboxController();
             }
-            if (controllerType == "rf")
+            if (controllerType == Controllers.RF)
             {
                 //TODO
                 //RF.initializeXboxController();
             }
-
-        }
-
-        private void MDIParent_Load(object sender, EventArgs e)
-        {
-            FrmHome frmHome = (FrmHome)getScreen("Home");
 
             //update indicators based on current values
             frmHome.updateHomeSettingsIndicators();
@@ -346,51 +336,60 @@ namespace Machine_Integrated_Karting_Experience
             tmrLoop.Interval = (int)Math.Round(1000.0 / (int)tickRate);
 
             //set up the ket press event
-        }
 
+        }
 
         public void updateParentSettingsIndicators()
         {
             //update connectivity status indicators
-            imgMotorControllerStatus.Image = getStatusImageFromCode(statusMotorController);
-            imgLidarStatus.Image = getStatusImageFromCode(statusLidar);
-            imgRaspPiStatus.Image = getStatusImageFromCode(statusRaspPi);
+            imgMotorControllerStatus.Image  = getStatusImageFromCode(statusMotorController);
+            imgLidarStatus.Image            = getStatusImageFromCode(statusLidar);
+            imgRaspPiStatus.Image           = getStatusImageFromCode(statusRaspPi);
             imgEstopConttrollerStatus.Image = getStatusImageFromCode(statusEStopConttroller);
-            imgDatabaseStatus.Image = getStatusImageFromCode(statusDatabase);
+            imgDatabaseStatus.Image         = getStatusImageFromCode(statusDatabase);
 
         }
 
-        public static Bitmap getStatusImageFromCode(int statusCode)
+        public static Bitmap getStatusImageFromCode(ConnectionStatus statusCode)
         {
             switch (statusCode)
             {
-                case NULL_CONNECTION_STATUS:
+                case ConnectionStatus.Null:
                     return Properties.Resources.NullConnection;
-                case FAILED_CONNECTION_STATUS:
+                case ConnectionStatus.Failed:
                     return Properties.Resources.Disconnected;
-                case SUCCESS_CONNECTION_STATUS:
+                case ConnectionStatus.Success:
                     return Properties.Resources.Connected;
-                case SIMULATE_CONNECTION_STATUS:
+                case ConnectionStatus.Simulated:
                     return Properties.Resources.Simulated;
                 default:
-                    return null;
+                    return Properties.Resources.NullConnection;
             }
         }
 
 
 
-        public static void swapScreen(string screenName)
+        public static void swapScreen(Screens screenCode)
         {
             //get the new the screen
-            screens.TryGetValue(screenName, out var screen);
+            screens.TryGetValue(screenCode, out var screen);
+
+            if(screen == null)
+            {
+                return;
+            }
+
             //set it as the new active screen
             screen.MdiParent = mdiParent;
             screen.Dock = DockStyle.Fill;
             screen.Show();
+            screen.BringToFront();
+
+            //TODO Highlight the active screen on the toolbar
         }
 
 
-        public static Form getScreen(string screenName)
+        public static Form getScreen(Screens screenName)
         {
             //get the form object based on the screen name
             screens.TryGetValue(screenName, out var screen);
@@ -400,19 +399,28 @@ namespace Machine_Integrated_Karting_Experience
         private void getSettings()
         {
             //get all values from the config file
-            tickRate = int.Parse(ConfigurationManager.AppSettings["tickRate"]);
-            maxJolt = int.Parse(ConfigurationManager.AppSettings["maxJoltPerSecond"]);
-            maxDisconnectTime = double.Parse(ConfigurationManager.AppSettings["maxDisconnectTime"]);
-            runType = int.Parse(ConfigurationManager.AppSettings["runType"]);
-            controllerType = ConfigurationManager.AppSettings["controllerType"];
-            coneOfCaring = ConfigurationManager.AppSettings["coneOfCaring"];
-            maxSpeed = int.Parse(ConfigurationManager.AppSettings["maxSpeed"]);
-            maxAccelertionPercent = int.Parse(ConfigurationManager.AppSettings["maxAccelertionPercent"]);
-            statusEStopConttroller = ConfigurationManager.AppSettings["simulateEStopConttroller"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
-            statusLidar = ConfigurationManager.AppSettings["simulateLidar"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
-            statusRaspPi = ConfigurationManager.AppSettings["simulateRaspPi"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
-            statusDatabase = ConfigurationManager.AppSettings["simulateDatabase"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
-            statusMotorController = ConfigurationManager.AppSettings["simulateMotorController"] == "1" ? SIMULATE_CONNECTION_STATUS : NULL_CONNECTION_STATUS;
+            tickRate              = int.Parse(   ConfigurationManager.AppSettings["tickRate"]);
+            maxJolt               = int.Parse(   ConfigurationManager.AppSettings["maxJoltPerSecond"]);
+            maxDisconnectTime     = double.Parse(ConfigurationManager.AppSettings["maxDisconnectTime"]);
+            runType               = int.Parse(   ConfigurationManager.AppSettings["runType"]);
+            coneOfCaring          =              ConfigurationManager.AppSettings["coneOfCaring"];
+            maxSpeed              = int.Parse(   ConfigurationManager.AppSettings["maxSpeed"]);
+            maxAccelertionPercent = int.Parse(   ConfigurationManager.AppSettings["maxAccelertionPercent"]);
+
+            if (ConfigurationManager.AppSettings["controllerType"] == "xbox")
+            {
+                controllerType = Controllers.Xbox;
+            }
+            else if (ConfigurationManager.AppSettings["controllerType"] == "RF")
+            {
+                controllerType = Controllers.RF;
+            }
+
+            statusEStopConttroller = ConfigurationManager.AppSettings["simulateEStopConttroller"] == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusLidar            = ConfigurationManager.AppSettings["simulateLidar"]            == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusRaspPi           = ConfigurationManager.AppSettings["simulateRaspPi"]           == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusDatabase         = ConfigurationManager.AppSettings["simulateDatabase"]         == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusMotorController  = ConfigurationManager.AppSettings["simulateMotorController"]  == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
         }
 
         Stopwatch watch = new Stopwatch();
@@ -422,9 +430,7 @@ namespace Machine_Integrated_Karting_Experience
             //start the timer to calculate tick capacity
             watch.Restart();
 
-
-
-            FrmHome frmHome = (FrmHome)MDIParent.getScreen("Home");
+            FrmHome frmHome = (FrmHome)getScreen(Screens.Home);
 
             Lidar.getLidar();
             MotorController.getMCData();
@@ -444,21 +450,24 @@ namespace Machine_Integrated_Karting_Experience
             updateParentSettingsIndicators();
             watch.Stop();
 
+            getTickCapacity(watch);
+
+            //update the numbers that we updated
+            frmHome.updateHomeIndicators();
+        }
+
+        private void getTickCapacity(Stopwatch watch)
+        {
             if (watch.ElapsedMilliseconds != 0)
             {
                 double tickPeriod = watch.Elapsed.TotalMilliseconds;
                 //convert the tick capacity from ms to Hz
-                tickCapacity = (int?)Math.Round((1000.0 / tickPeriod));
+                tickCapacity = (int?)Math.Round(1000.0 / tickPeriod);
             }
             else
             {
                 tickCapacity = 9999;
             }
-
-
-
-            //update the numbers that we updated
-            frmHome.updateHomeIndicators();
         }
 
         private void getMovement()
@@ -475,12 +484,12 @@ namespace Machine_Integrated_Karting_Experience
                 Auto.getAutonomousMovement();
                 return;
             }
-            if (isManual & controllerType == "xbox")
+            if (isManual && controllerType == Controllers.Xbox)
             {
                 XboxController.updateXboxData();
                 return;
             }
-            if (isManual & controllerType == "rf")
+            if (isManual && controllerType == Controllers.RF)
             {
                 RF.updateRFData();
                 return;
@@ -491,11 +500,11 @@ namespace Machine_Integrated_Karting_Experience
         {
             bool estopState = false;
             estopState = FrmHome.manualSoftEstop || estopState;
-            if (controllerType == "xbox")
+            if (controllerType == Controllers.Xbox)
             {
                 estopState = XboxController.XboxSoftEstop || estopState;
             }
-            if (controllerType == "rf")
+            else if (controllerType == Controllers.RF)
             {
                 estopState = RF.RFSoftEstop || estopState;
             }
@@ -511,6 +520,20 @@ namespace Machine_Integrated_Karting_Experience
             }
         }
 
+        private void lblHomeSelector_Click(object sender, EventArgs e)
+        {
+            swapScreen(Screens.Home);
+        }
+
+        private void lblCRUDSelector_Click(object sender, EventArgs e)
+        {
+            swapScreen(Screens.CRUD);
+        }
+
+        private void lblSettingsSellector_Click(object sender, EventArgs e)
+        {
+            swapScreen(Screens.Settings);
+        }
     }
 
 }

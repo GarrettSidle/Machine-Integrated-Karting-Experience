@@ -10,7 +10,7 @@ namespace Machine_Integrated_Karting_Experience
     {
         public static void writeToDatabase()
         {
-            if (MDIParent.statusDatabase == MDIParent.SIMULATE_CONNECTION_STATUS)
+            if (MDIParent.statusDatabase == MDIParent.ConnectionStatus.Simulated)
             {
                 return;
             }

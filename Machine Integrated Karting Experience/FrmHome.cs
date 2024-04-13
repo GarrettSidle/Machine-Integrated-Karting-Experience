@@ -19,10 +19,10 @@ namespace Machine_Integrated_Karting_Experience
         public static bool manualSoftEstop = true;
 
         const double KART_WIDTH_HEIGHT_RATIO = 0.89;
-        const double PERC_TIRE_TO_WIDTH = .108;
-        const double PERC_TIRE_TO_HEIGHT = .188;
-        const double PERC_Y_MARGIN = .14;
-        const double PERC_X_MARGIN = .116;
+        const double PERC_TIRE_TO_WIDTH      = .108;
+        const double PERC_TIRE_TO_HEIGHT     = .188;
+        const double PERC_Y_MARGIN           = .14;
+        const double PERC_X_MARGIN           = .116;
 
         public FrmHome()
         {
@@ -31,25 +31,25 @@ namespace Machine_Integrated_Karting_Experience
 
         public void initializeTires()
         {
-            int imgWidth = imgKart.Width;
-            int totalHeight = imgKart.Height;
-            int imgHeight = (int)Math.Round(imgWidth / KART_WIDTH_HEIGHT_RATIO);
+            int imgWidth     = imgKart.Width;
+            int totalHeight  = imgKart.Height;
+            int imgHeight    = (int)Math.Round(imgWidth / KART_WIDTH_HEIGHT_RATIO);
             int marginHeight = totalHeight - imgHeight;
 
-            int xMargin = (int)Math.Round(imgWidth * PERC_X_MARGIN);
-            int yMargin = (int)Math.Round((imgHeight * PERC_Y_MARGIN) + (.5 * marginHeight));
+            int xMargin      = (int)Math.Round(imgWidth * PERC_X_MARGIN);
+            int yMargin      = (int)Math.Round((imgHeight * PERC_Y_MARGIN) + (.5 * marginHeight));
 
-            int tireWidth = (int)Math.Round(imgWidth * PERC_TIRE_TO_WIDTH);
-            int tireHeight = (int)Math.Round(imgHeight * PERC_TIRE_TO_HEIGHT);
+            int tireWidth    = (int)Math.Round(imgWidth * PERC_TIRE_TO_WIDTH);
+            int tireHeight   = (int)Math.Round(imgHeight * PERC_TIRE_TO_HEIGHT);
 
 
-            pnlLeftTire.Width = tireWidth;
+            pnlLeftTire.Width  = tireWidth;
             pnlRightTire.Width = tireWidth;
 
-            pnlLeftTire.Height = tireHeight;
+            pnlLeftTire.Height  = tireHeight;
             pnlRightTire.Height = tireHeight;
 
-            pnlLeftTire.Location = new Point(xMargin, yMargin);
+            pnlLeftTire.Location  = new Point(xMargin, yMargin);
             pnlRightTire.Location = new Point(imgWidth - xMargin - tireWidth, yMargin);
 
 
@@ -58,11 +58,20 @@ namespace Machine_Integrated_Karting_Experience
         //used for unchanging value, (does not update)
         public void updateHomeSettingsIndicators()
         {
-            lblTickFreqValue.Text = MDIParent.tickRate.ToString();
-            lblMaxJoltValue.Text = MDIParent.maxJolt.ToString();
-            lblRunTypeValue.Text = MDIParent.runType.ToString();
-            lblControllerTypeValue.Text = MDIParent.controllerType;
+            lblTickFreqValue.Text     = MDIParent.tickRate.ToString();
+            lblMaxJoltValue.Text      = MDIParent.maxJolt.ToString();
+            lblRunTypeValue.Text      = MDIParent.runType.ToString();
             lblConeOfCaringValue.Text = MDIParent.coneOfCaring;
+
+            if(MDIParent.controllerType == MDIParent.Controllers.Xbox)
+            {
+                lblControllerTypeValue.Text = "Xbox";
+            }
+            else if(MDIParent.controllerType == MDIParent.Controllers.RF)
+            {
+                lblControllerTypeValue.Text = "RF";
+            }
+
 
             //TODO Get run type from run number in DB
 
@@ -77,16 +86,16 @@ namespace Machine_Integrated_Karting_Experience
         {
             //TODO, dynamically use cone of caring in lidar display (lines)
             pltCleanLidar.Plot.Add.Line(new Coordinates(-10, 10), new Coordinates(0, 0));
-            pltCleanLidar.Plot.Add.Line(new Coordinates(10, 10), new Coordinates(0, 0));
+            pltCleanLidar.Plot.Add.Line(new Coordinates( 10, 10), new Coordinates(0, 0));
         }
 
         public void updateHomeIndicators()
         {
             //update kart metrics
             lblAccelerationValue.Text = MDIParent.currentAccelertion.ToString();
-            lblSpeedValue.Text = MDIParent.currentSpeed.ToString();
-            labelBrakeValue.Text = MDIParent.currentBrakeStatus.ToString();
-            lblSteerAngleValue.Text = MDIParent.currentSteerAngle.ToString();
+            lblSpeedValue.Text        = MDIParent.currentSpeed.ToString();
+            labelBrakeValue.Text      = MDIParent.currentBrakeStatus.ToString();
+            lblSteerAngleValue.Text   = MDIParent.currentSteerAngle.ToString();
 
             //TODO add acceleration bar, add logic to update acceleration bar
             //TODO add brakes display, add logic to update brakes display
@@ -101,27 +110,27 @@ namespace Machine_Integrated_Karting_Experience
             //TODO, add Max maxDisconnectTime label, add from config
 
             //update tick settings
-            lblTickCapacityValue.Text = MDIParent.tickCapacity.ToString();
+            lblTickCapacityValue.Text   = MDIParent.tickCapacity.ToString();
             lblTickEfficiencyValue.Text = MDIParent.tickEffiecency.ToString();
 
             //update controller connection
             imgControllerConnection.Image = MDIParent.getStatusImageFromCode(MDIParent.statusController);
 
             //update bit status indicators
-            imgEStopStatusValue.Image = MDIParent.currentEstop ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
-            imgSoftEstopValue.Image = MDIParent.currentSoftEstop ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
+            imgEStopStatusValue.Image     = MDIParent.currentEstop ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
+            imgSoftEstopValue.Image       = MDIParent.currentSoftEstop ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
             imgAutomaticStatusValue.Image = MDIParent.isAuto ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
-            imgManualStatusValue.Image = MDIParent.isManual ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
+            imgManualStatusValue.Image    = MDIParent.isManual ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
             imgRecordingStatusValue.Image = MDIParent.isRecording ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
-            imgFlagStatusValue.Image = MDIParent.isFlagging ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
+            imgFlagStatusValue.Image      = MDIParent.isFlagging ? Properties.Resources.TrueIndicator : Properties.Resources.FalseIndicator;
 
             pltCleanLidar.Plot.Clear();
             addConeofCaring();
 
 
-            lblRunNumberValue.Text = MDIParent.runNumber.ToString();
+            lblRunNumberValue.Text   = MDIParent.runNumber.ToString();
             lblFrameNumberValue.Text = MDIParent.runFrame.ToString();
-            lblDateTimeValue.Text = DateTime.Now.ToString();
+            lblDateTimeValue.Text    = DateTime.Now.ToString();
 
 
             int nodeCount = MDIParent.lidarData.Count();

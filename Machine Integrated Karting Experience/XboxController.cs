@@ -37,7 +37,7 @@ namespace Machine_Integrated_Karting_Experience
 
             if (!connected)
             {
-                MDIParent.statusController = MDIParent.FAILED_CONNECTION_STATUS;
+                MDIParent.statusController = MDIParent.ConnectionStatus.Failed;
                 controller = new Controller(UserIndex.One);
                 
                 //if it has been longer than the max time
@@ -53,7 +53,7 @@ namespace Machine_Integrated_Karting_Experience
             //reset the connection and cancel the current estop
             connectionAttempts = 0;
             XboxSoftEstop = false;
-            MDIParent.statusController = MDIParent.SUCCESS_CONNECTION_STATUS;
+            MDIParent.statusController = MDIParent.ConnectionStatus.Success;
 
             //if we are in Sstop
             if(MDIParent.currentEstop || MDIParent.currentSoftEstop)
