@@ -294,7 +294,6 @@ namespace Machine_Integrated_Karting_Experience
 
         #endregion
 
-        //TODO, add swap screen logic
 
         public MDIParent()
         {
@@ -335,7 +334,7 @@ namespace Machine_Integrated_Karting_Experience
             //update the loop frequency
             tmrLoop.Interval = (int)Math.Round(1000.0 / (int)tickRate);
 
-            //set up the ket press event
+            //TODO: set up the key press event
 
         }
 
