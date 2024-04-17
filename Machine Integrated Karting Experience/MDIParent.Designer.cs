@@ -36,7 +36,7 @@ namespace Machine_Integrated_Karting_Experience
             Tool = new ToolStripSeparator();
             lblCRUDSelector = new ToolStripLabel();
             toolStripSeparator8 = new ToolStripSeparator();
-            lblSettingsSellector = new ToolStripLabel();
+            lblSettingsSelector = new ToolStripLabel();
             lblDatabaseStatus = new ToolStripLabel();
             imgDatabaseStatus = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
@@ -59,7 +59,7 @@ namespace Machine_Integrated_Karting_Experience
             // 
             // pageSelectorToolStrip
             // 
-            pageSelectorToolStrip.Items.AddRange(new ToolStripItem[] { lblHomeSelector, Tool, lblCRUDSelector, toolStripSeparator8, lblSettingsSellector });
+            pageSelectorToolStrip.Items.AddRange(new ToolStripItem[] { lblHomeSelector, Tool, lblCRUDSelector, toolStripSeparator8, lblSettingsSelector });
             pageSelectorToolStrip.Location = new Point(0, 0);
             pageSelectorToolStrip.Name = "pageSelectorToolStrip";
             pageSelectorToolStrip.RightToLeft = RightToLeft.No;
@@ -69,6 +69,8 @@ namespace Machine_Integrated_Karting_Experience
             // 
             // lblHomeSelector
             // 
+            lblHomeSelector.BackColor = SystemColors.Control;
+            lblHomeSelector.ForeColor = Color.Black;
             lblHomeSelector.Name = "lblHomeSelector";
             lblHomeSelector.Size = new Size(40, 22);
             lblHomeSelector.Text = "Home";
@@ -93,12 +95,13 @@ namespace Machine_Integrated_Karting_Experience
             toolStripSeparator8.Name = "toolStripSeparator8";
             toolStripSeparator8.Size = new Size(6, 25);
             // 
-            // lblSettingsSellector
+            // lblSettingsSelector
             // 
-            lblSettingsSellector.Name = "lblSettingsSellector";
-            lblSettingsSellector.Size = new Size(49, 22);
-            lblSettingsSellector.Text = "Settings";
-            lblSettingsSellector.Click += lblSettingsSellector_Click;
+            lblSettingsSelector.Font = new Font("Segoe UI", 9F);
+            lblSettingsSelector.Name = "lblSettingsSelector";
+            lblSettingsSelector.Size = new Size(49, 22);
+            lblSettingsSelector.Text = "Settings";
+            lblSettingsSelector.Click += lblSettingsSellector_Click;
             // 
             // lblDatabaseStatus
             // 
@@ -243,7 +246,7 @@ namespace Machine_Integrated_Karting_Experience
         private ToolStripSeparator Tool;
         private ToolStripLabel lblCRUDSelector;
         private ToolStripSeparator toolStripSeparator8;
-        private ToolStripLabel lblSettingsSellector;
+        private ToolStripLabel lblSettingsSelector;
         private ToolStripLabel lblDatabaseStatus;
         private ToolStripButton imgDatabaseStatus;
         private ToolStripSeparator toolStripSeparator1;

@@ -383,8 +383,29 @@ namespace Machine_Integrated_Karting_Experience
             screen.Dock = DockStyle.Fill;
             screen.Show();
             screen.BringToFront();
+            //default button color to black
+            mdiParent.lblHomeSelector.ForeColor = Color.Black;
+            mdiParent.lblCRUDSelector.ForeColor = Color.Black;
+            mdiParent.lblSettingsSelector.ForeColor = Color.Black;
+            
+            //dynamically highlights selected screen
+            switch (screenCode)
+            {
+                case Screens.Home:
+                    mdiParent.lblHomeSelector.ForeColor = Color.Crimson;
+                    //mdiParent.lblHomeSelector.Font.Bold = true; todo bold the colored tab
+                    break;
+                case Screens.CRUD:
+                    mdiParent.lblCRUDSelector.ForeColor = Color.Crimson;
+                    break;
+                case Screens.Settings:
+                    mdiParent.lblSettingsSelector.ForeColor = Color.Crimson;
+                    break;
+                default:
+                    break;
+                    
+            }
 
-            //TODO Highlight the active screen on the toolbar
         }
 
 
