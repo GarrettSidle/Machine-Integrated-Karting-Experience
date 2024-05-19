@@ -421,6 +421,8 @@ namespace Machine_Integrated_Karting_Experience
 
         private void getSettings()
         {
+            Utils.LogInfo("test");
+
             //get all values from the config file
             tickRate = int.Parse(ConfigurationManager.AppSettings["tickRate"]);
             maxJolt = int.Parse(ConfigurationManager.AppSettings["maxJoltPerSecond"]);
