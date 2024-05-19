@@ -54,25 +54,47 @@ namespace Machine_Integrated_Karting_Experience
 
 
         }
-
-        public static List<string> Query(string cmdTxt)
+        public static void checkConnection()
         {
-            List<string> output = new List<string>();
+            if (connection == null) 
+            {
+                initializeConnection();
+
+                Utils.LogWarning("Connection was opened outside of immediate launch");
+            }
+        }
+
+        public static (List<string[]>, string[]) Query(string cmdTxt)
+        {
+            checkConnection();
+
 
             NpgsqlCommand cmd = new NpgsqlCommand(cmdTxt, connection);
 
             NpgsqlDataReader reader = cmd.ExecuteReader();
-            int i = 0;
+
+            List<string[]> data = new List<string[]>();
+            string[] headers = new string[reader.FieldCount];
 
             while (reader.Read())
             {
-                output[i] = reader.GetString(0);
-                Console.WriteLine(reader.GetString(0));
-                i++;
+                int i = 0;
+
+                string[] row = new string[reader.FieldCount];
+                for (int j = 0; j < reader.FieldCount; j++)
+                {
+                    row[j] = reader[j]?.ToString() ?? "NULL";
+
+                    if ( i == 0 )
+                    {
+                        headers[j] = reader.GetName(j);
+                    }
+                }
+                data.Add(row);
             }
             reader.Close();
 
-            return output;
+            return (data, headers);
         }
 
         public static void close()
