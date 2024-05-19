@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <PackageReference Include="Flee" Version="2.0.0" />
+    <PackageReference Include="Npgsql" Version="8.0.2" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.21" />
     <PackageReference Include="SharpDX.XInput" Version="4.2.0" />
     <PackageReference Include="System.Drawing.Common" Version="8.0.1" />

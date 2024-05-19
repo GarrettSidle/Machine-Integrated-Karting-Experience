@@ -232,6 +232,7 @@ namespace Machine_Integrated_Karting_Experience
             Text = "Machine Integrated Karting Experience (M.I.K.E.)";
             TopMost = true;
             WindowState = FormWindowState.Maximized;
+            FormClosing += MDIParent_FormClosing;
             pageSelectorToolStrip.ResumeLayout(false);
             pageSelectorToolStrip.PerformLayout();
             connectivityToolStrip.ResumeLayout(false);

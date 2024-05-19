@@ -270,6 +270,7 @@ namespace Machine_Integrated_Karting_Experience
             RF
         }
 
+
         //
         //
         //
@@ -331,6 +332,8 @@ namespace Machine_Integrated_Karting_Experience
             updateParentSettingsIndicators();
             frmHome.updateHomeIndicators();
 
+            Database.initializeConnection();
+
             //update the loop frequency
             tmrLoop.Interval = (int)Math.Round(1000.0 / (int)tickRate);
 
@@ -341,11 +344,11 @@ namespace Machine_Integrated_Karting_Experience
         public void updateParentSettingsIndicators()
         {
             //update connectivity status indicators
-            imgMotorControllerStatus.Image  = getStatusImageFromCode(statusMotorController);
-            imgLidarStatus.Image            = getStatusImageFromCode(statusLidar);
-            imgRaspPiStatus.Image           = getStatusImageFromCode(statusRaspPi);
+            imgMotorControllerStatus.Image = getStatusImageFromCode(statusMotorController);
+            imgLidarStatus.Image = getStatusImageFromCode(statusLidar);
+            imgRaspPiStatus.Image = getStatusImageFromCode(statusRaspPi);
             imgEstopConttrollerStatus.Image = getStatusImageFromCode(statusEStopConttroller);
-            imgDatabaseStatus.Image         = getStatusImageFromCode(statusDatabase);
+            imgDatabaseStatus.Image = getStatusImageFromCode(statusDatabase);
 
         }
 
@@ -373,7 +376,7 @@ namespace Machine_Integrated_Karting_Experience
             //get the new the screen
             screens.TryGetValue(screenCode, out var screen);
 
-            if(screen == null)
+            if (screen == null)
             {
                 return;
             }
@@ -387,7 +390,7 @@ namespace Machine_Integrated_Karting_Experience
             mdiParent.lblHomeSelector.ForeColor = Color.Black;
             mdiParent.lblCRUDSelector.ForeColor = Color.Black;
             mdiParent.lblSettingsSelector.ForeColor = Color.Black;
-            
+
             //dynamically highlights selected screen
             switch (screenCode)
             {
@@ -403,7 +406,7 @@ namespace Machine_Integrated_Karting_Experience
                     break;
                 default:
                     break;
-                    
+
             }
 
         }
@@ -419,13 +422,13 @@ namespace Machine_Integrated_Karting_Experience
         private void getSettings()
         {
             //get all values from the config file
-            tickRate              = int.Parse(   ConfigurationManager.AppSettings["tickRate"]);
-            maxJolt               = int.Parse(   ConfigurationManager.AppSettings["maxJoltPerSecond"]);
-            maxDisconnectTime     = double.Parse(ConfigurationManager.AppSettings["maxDisconnectTime"]);
-            runType               = int.Parse(   ConfigurationManager.AppSettings["runType"]);
-            coneOfCaring          =              ConfigurationManager.AppSettings["coneOfCaring"];
-            maxSpeed              = int.Parse(   ConfigurationManager.AppSettings["maxSpeed"]);
-            maxAccelertionPercent = int.Parse(   ConfigurationManager.AppSettings["maxAccelertionPercent"]);
+            tickRate = int.Parse(ConfigurationManager.AppSettings["tickRate"]);
+            maxJolt = int.Parse(ConfigurationManager.AppSettings["maxJoltPerSecond"]);
+            maxDisconnectTime = double.Parse(ConfigurationManager.AppSettings["maxDisconnectTime"]);
+            runType = int.Parse(ConfigurationManager.AppSettings["runType"]);
+            coneOfCaring = ConfigurationManager.AppSettings["coneOfCaring"];
+            maxSpeed = int.Parse(ConfigurationManager.AppSettings["maxSpeed"]);
+            maxAccelertionPercent = int.Parse(ConfigurationManager.AppSettings["maxAccelertionPercent"]);
 
             if (ConfigurationManager.AppSettings["controllerType"] == "xbox")
             {
@@ -437,10 +440,10 @@ namespace Machine_Integrated_Karting_Experience
             }
 
             statusEStopConttroller = ConfigurationManager.AppSettings["simulateEStopConttroller"] == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
-            statusLidar            = ConfigurationManager.AppSettings["simulateLidar"]            == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
-            statusRaspPi           = ConfigurationManager.AppSettings["simulateRaspPi"]           == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
-            statusDatabase         = ConfigurationManager.AppSettings["simulateDatabase"]         == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
-            statusMotorController  = ConfigurationManager.AppSettings["simulateMotorController"]  == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusLidar = ConfigurationManager.AppSettings["simulateLidar"] == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusRaspPi = ConfigurationManager.AppSettings["simulateRaspPi"] == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusDatabase = ConfigurationManager.AppSettings["simulateDatabase"] == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
+            statusMotorController = ConfigurationManager.AppSettings["simulateMotorController"] == "1" ? ConnectionStatus.Simulated : ConnectionStatus.Null;
         }
 
         Stopwatch watch = new Stopwatch();
@@ -553,6 +556,11 @@ namespace Machine_Integrated_Karting_Experience
         private void lblSettingsSellector_Click(object sender, EventArgs e)
         {
             swapScreen(Screens.Settings);
+        }
+
+        private void MDIParent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Database.close();
         }
     }
 
