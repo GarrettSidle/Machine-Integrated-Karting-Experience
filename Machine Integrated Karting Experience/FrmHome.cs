@@ -60,7 +60,7 @@ namespace Machine_Integrated_Karting_Experience
         {
             lblTickFreqValue.Text     = MDIParent.tickRate.ToString();
             lblMaxJoltValue.Text      = MDIParent.maxJolt.ToString();
-            lblRunTypeValue.Text      = MDIParent.runType.ToString();
+            lblRunTypeValue.Text      = Database.setID.ToString();
             lblConeOfCaringValue.Text = MDIParent.coneOfCaring;
 
             if(MDIParent.controllerType == MDIParent.Controllers.Xbox)
@@ -128,8 +128,8 @@ namespace Machine_Integrated_Karting_Experience
             addConeofCaring();
 
 
-            lblRunNumberValue.Text   = MDIParent.runNumber.ToString();
-            lblFrameNumberValue.Text = MDIParent.runFrame.ToString();
+            lblRunNumberValue.Text   = Database.runID.ToString();
+            lblFrameNumberValue.Text = Database.frameID.ToString();
             lblDateTimeValue.Text    = DateTime.Now.ToString();
 
 

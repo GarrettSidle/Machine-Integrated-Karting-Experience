@@ -216,6 +216,16 @@ namespace Machine_Integrated_Karting_Experience
                 //TODO, Warning : Cannot record with disconected MC / Lidar / Pi
 
                 isRecordingValue = value;
+
+                //if we are now recording
+                if (value)
+                {
+                    Database.initializeRecording();
+                }
+                else
+                {
+                    Database.stopRecording();
+                }
             }
         }
 
@@ -283,12 +293,6 @@ namespace Machine_Integrated_Karting_Experience
         //data logging values
         //
 
-        public static int runNumber;
-
-        public static int runFrame;
-
-        public static int runType;
-
         public static DateTime dateTime;
 
 
@@ -340,6 +344,7 @@ namespace Machine_Integrated_Karting_Experience
             tmrLoop.Interval = (int)Math.Round(1000.0 / (int)tickRate);
 
             //TODO: set up the key press event
+
 
         }
 
@@ -427,7 +432,7 @@ namespace Machine_Integrated_Karting_Experience
             tickRate = int.Parse(ConfigurationManager.AppSettings["tickRate"]);
             maxJolt = int.Parse(ConfigurationManager.AppSettings["maxJoltPerSecond"]);
             maxDisconnectTime = double.Parse(ConfigurationManager.AppSettings["maxDisconnectTime"]);
-            runType = int.Parse(ConfigurationManager.AppSettings["runType"]);
+            Database.setID = int.Parse(ConfigurationManager.AppSettings["runType"]);
             coneOfCaring = ConfigurationManager.AppSettings["coneOfCaring"];
             maxSpeed = int.Parse(ConfigurationManager.AppSettings["maxSpeed"]);
             maxAccelertionPercent = int.Parse(ConfigurationManager.AppSettings["maxAccelertionPercent"]);
