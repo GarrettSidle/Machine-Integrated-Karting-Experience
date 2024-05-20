@@ -10,6 +10,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Threading;
 using System.Windows.Forms;
 using OpenTK.Graphics.OpenGL;
+using System.Configuration;
+using ScottPlot.Statistics;
 
 namespace Machine_Integrated_Karting_Experience
 {
@@ -45,11 +47,25 @@ namespace Machine_Integrated_Karting_Experience
         public static void initializeConnection()
         {
 
+            string? host     = ConfigurationManager.AppSettings["host"];
+            string? port     = ConfigurationManager.AppSettings["port"];
+            string? database = ConfigurationManager.AppSettings["database"];
+            string? userId   = ConfigurationManager.AppSettings["userId"];
+            string? password = ConfigurationManager.AppSettings["password"];
 
-            string connectionString = "Host=localhost; Port = 5432; Database = MIKE; User Id = postgres; Password = postgres; ";
+            string connectionString = $"Host={host}; Port = {port}; Database = {database}; User Id = {userId}; Password = {password}; ";
+
 
             connection = new NpgsqlConnection(connectionString);
-            connection.Open();
+
+            try
+            {
+                connection.Open();
+            }
+            catch
+            {
+                Utils.LogError("Failed to open Database");
+            }
 
 
 
